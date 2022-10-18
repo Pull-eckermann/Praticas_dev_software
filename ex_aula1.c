@@ -1,23 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //Struct que representa uma pessoa
 typedef struct person{
-    char *name;
+    char name[1024];
     unsigned int cpf;
     int age;
 } person;
 
 //Função que consulta cpf e valida
 int validarCPF(unsigned int cpf){
+    int soma;
+    int div = 1000;
+    int div2 = 100;
+    for(int i = 10; i >=2; i--){
+        soma = cpf % div;
+        soma /=div2
+        soma *= i;
+        div *= 10;
+        div2 *= 10;
+    }
+    soma = soma * 10;
+    int resto = soma % 11;
+    
+
+
     return 1;
 }
 //Função responsável por colher nome do usuário do tipo person
-char * leNome(){
-    char * nome;
+void *leNome(char *teste){
+    char nome[1024];
     printf("Digite o nome do usuário: ");
     scanf("%s",nome);
-    return nome;
+    memcpy(teste,nome,1024);
+
 }
 //Função responsável por colher o cpf
 unsigned int leCPF(){
@@ -51,13 +68,15 @@ void imprimeLista(person *p_list){
 
 void main(){
     person * p_list = malloc(sizeof(person)*3);
+    char nome[1024];
     //Colhe os dados de cada usuário
     for (int i = 0; i < 3; i++){
         printf("Insira os dados do usuário %d \n",i+1);
-        p_list[i].name = leNome();
+        leNome(nome);
+        memcpy(p_list[i].name,nome,1024);
         p_list[i].cpf = leCPF();
         p_list[i].age = leIdade();
-    printf("\n");
+        printf("\n");
     }
     imprimeLista(p_list);
 }
