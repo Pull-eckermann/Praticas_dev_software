@@ -15,29 +15,27 @@ int validarCPF(unsigned int cpf){
 //Função responsável por colher nome do usuário do tipo person
 char * leNome(){
     char * nome;
-    printf("Digite o nome do usuário:");
+    printf("Digite o nome do usuário: ");
     scanf("%s",nome);
     return nome;
 }
 //Função responsável por colher o cpf
 unsigned int leCPF(){
     unsigned int cpf;
-    printf("Digite o CPF do usuário:");
+    printf("Digite o CPF do usuário: ");
     scanf("%u",&cpf);
-    if (validarCPF(cpf))
-        return cpf;
-    else
-        while(!(validarCPF(cpf))){
-            printf("CPF inválido, digite novamente:");
-            scanf("%u",&cpf);
-            if (validarCPF(cpf))
-                return cpf;
-        }
+    while(!(validarCPF(cpf))){
+        printf("CPF inválido, digite novamente:");
+        scanf("%u",&cpf);
+        if (validarCPF(cpf))
+            return cpf;
+    }
+    return cpf;
 }
 //Função responsável em ler a idade da pessoa
 int leIdade(){
     int age;
-    printf("Digite a idade do usuário:");
+    printf("Digite a idade do usuário: ");
     scanf("%d",&age);
     return age;
 }
@@ -52,7 +50,7 @@ void imprimeLista(person *p_list){
 }
 
 void main(){
-    person p_list[2];
+    person * p_list = malloc(sizeof(person)*3);
     //Colhe os dados de cada usuário
     for (int i = 0; i < 3; i++){
         printf("Insira os dados do usuário %d \n",i+1);
