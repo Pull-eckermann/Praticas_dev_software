@@ -3,10 +3,10 @@
 
 class Retangulo{
 	public:
-        int calculaArea(Retangulo ret); 
-        int calculaPerimetro(Retangulo ret);
-        double calculaDiagonal(Retangulo ret);
-        
+        int calculaArea(); 
+        int calculaPerimetro();
+        double calculaDiagonal();
+
         int getAltura();
         void setAltura(int altura);
 

@@ -1,17 +1,17 @@
 #include "Retangulo.hpp"
 #include <cmath>
 
-int Retangulo:: calculaArea(Retangulo ret){
-  return ret.h * ret.w;
+int Retangulo:: calculaArea(){
+  return h * w;
 }
 
-int Retangulo:: calculaPerimetro(Retangulo ret){
-  return (ret.h*2) + (ret.w)*2;
+int Retangulo:: calculaPerimetro(){
+  return (h*2) + (w)*2;
 }
 
-double Retangulo:: calculaDiagonal(Retangulo ret){
+double Retangulo:: calculaDiagonal(){
   int aux;
-  aux = (ret.h*ret.h) + (ret.w*ret.w);
+  aux = (h*h) + (w*w);
   return sqrt(aux);
 }
 
