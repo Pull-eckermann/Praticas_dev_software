@@ -1,21 +1,26 @@
-#include<iostream>
+#include <iostream>
+#include <string>
+
 #include"Pessoa.hpp"
 
 int main(){
 	Pessoa p1;
-	int idade;
+	unsigned long cpfLido;
+	std::string nomeLido;
+	unsigned short idade;
+	
 	std::cout << "Nome: ";
-	std::cin >> p1.nome;
+	std::cin >> nomeLido;
+	p1.setNome(nomeLido);
+	
 	std::cout << "Idade: ";
 	std::cin >> idade;
-	p1.idade = idade;
-	bool valido = false;
-	while(!valido){
-		std::cout << "CPF: ";
-		std::cin >> p1.cpf;
-		valido = p1.validarCPF(p1.cpf);
-	}
-	std::cout << "Dados da pessoa: " << p1.nome << "\t" << (unsigned short int)p1.idade << "\t" << p1.cpf << std::endl;
-
+	p1.setIdade(idade);
+	
+	std::cout << "CPF: ";
+	std::cin >> cpfLido;
+	p1.setCpf(cpfLido);
+	
+	std::cout << p1.getNome() << '\t' << (unsigned short)p1.getIdade() << '\t' << p1.getCpf() << std::endl;
 	return 0;
 }
