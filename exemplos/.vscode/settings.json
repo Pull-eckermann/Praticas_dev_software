@@ -40,6 +40,13 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "system_error": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "cstdarg": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "deque": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "cinttypes": "cpp"
     }
 }

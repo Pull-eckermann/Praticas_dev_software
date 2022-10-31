@@ -1,5 +1,19 @@
 #include "Pessoa.hpp"
 
+Pessoa:: Pessoa(){
+}
+
+Pessoa::Pessoa(std::string nomePessoa)
+	:nome{nomePessoa}, cpf{0}, idade{0}{
+}
+
+Pessoa:: Pessoa(std::string nomePessoa, unsigned short idadePessoa, unsigned long cpfPessoa)
+	:Pessoa{nomePessoa}{
+	setIdade(idadePessoa);
+	setCpf(cpfPessoa);
+}
+
+//=======================Gets e Seters======================
 unsigned long Pessoa::getCpf(){
 	return cpf;
 }
