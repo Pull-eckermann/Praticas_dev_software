@@ -1,20 +1,20 @@
 #include<iostream>
 
-#include<string>
-
 #include "Pessoa.hpp"
 #include "Disciplina.hpp"
+#include "Curso.hpp"
 
 int main(){
-	Pessoa p1{"Joao", 11111111111, 20};
-	Pessoa p2{"Maria"};
+ Pessoa* p1{new Pessoa{"Joao", 11111111111, 20}};
+ Curso curso{"BCC", 1990, 3200};
+ Disciplina d1{"Orientacao a Objetos", curso};
 
-	Disciplina d1{"Orientacao a Objetos"};
+ d1.setProfessor(p1);
+ d1.setCargaHoraria(60);
 
-	std::cout << p1.getNome() << '\t' << p1.getIdade() << '\t' <<  p1.getCpf() << '\n';
-	std::cout << p2.getNome() << '\n';
+ std::string cabecalho{"Dados da disciplina"};
+ d1.imprimeDados(cabecalho, 4000);
+ delete p1;
 
-	std::cout << d1.getNome() << '\n';
-
-	return 0;
+ return 0;
 }

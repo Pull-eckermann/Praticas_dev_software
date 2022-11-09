@@ -3,8 +3,8 @@ nomePrograma=aula
 
 all: $(nomePrograma)
 
-$(nomePrograma): main.o Pessoa.o Disciplina.o
-	g++ -o $(nomePrograma) main.o Pessoa.o Disciplina.o $(parametrosCompilacao)
+$(nomePrograma): main.o Pessoa.o Disciplina.o Curso.o
+	g++ -o $(nomePrograma) main.o Pessoa.o Disciplina.o Curso.o $(parametrosCompilacao)
 
 main.o: main.cpp
 	g++ -c main.cpp $(parametrosCompilacao)
@@ -14,6 +14,9 @@ Pessoa.o: Pessoa.hpp Pessoa.cpp
 
 Disciplina.o: Disciplina.hpp Disciplina.cpp
 	g++ -c Disciplina.cpp $(parametrosCompilacao)
+
+Curso.o: Curso.hpp Curso.cpp
+	g++ -c Curso.cpp $(parametrosCompilacao)
 
 clean:
 	rm -f *.o *.gch $(nomePrograma)

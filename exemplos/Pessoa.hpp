@@ -5,19 +5,20 @@
 
 class Pessoa{
     public:
-        Pessoa(std::string nomePessoa);
-        Pessoa(std::string nomePessoa, unsigned long cpfPessoa, unsigned short int idade);
+        Pessoa();
+        Pessoa(std::string nome);
+        Pessoa(std::string nome, unsigned long cpf, unsigned short int idade);
 
         unsigned long getCpf();
-        void setCpf(unsigned long novoCpf);
+        void setCpf(unsigned long cpf);
 
         std::string getNome();
-        void setNome(std::string novoNome);
+        void setNome(std::string nome);
 
         unsigned short int getIdade();
-        void setIdade(unsigned short int novaIdade);
+        void setIdade(unsigned short int idade);
     private:
-        bool validarCPF(unsigned long cpfTeste);
+        bool validarCPF(unsigned long cpf);
 
         std::string nome;
         unsigned long cpf;

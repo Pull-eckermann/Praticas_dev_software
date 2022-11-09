@@ -1,65 +1,66 @@
 #include "Pessoa.hpp"
-
 #include <iostream>
 
-Pessoa::Pessoa(std::string nomePessoa)
-	:nome{nomePessoa}{
+Pessoa::Pessoa(){}
+
+Pessoa::Pessoa(std::string nome)
+	:nome{nome}{
 }
 
-Pessoa::Pessoa(std::string nomePessoa,
-	unsigned long cpfPessoa,
-	unsigned short int idadePessoa)
-		:Pessoa{nomePessoa}{
-	setCpf(cpfPessoa);
-	setIdade(idadePessoa);
+Pessoa::Pessoa(std::string nome,
+	unsigned long cpf,
+	unsigned short int idade)
+		:Pessoa{nome}{
+	setCpf(cpf);
+	setIdade(idade);
 }
 
 unsigned long Pessoa::getCpf(){
     //retorna uma cópia do cpf
-    return cpf;
+    return this->cpf;
 }
 
-void Pessoa::setCpf(unsigned long novoCpf){
-    if(validarCPF(novoCpf)){
-        cpf = novoCpf;
+void Pessoa::setCpf(unsigned long cpf){
+    if(validarCPF(cpf)){
+        this->cpf = cpf;
         return;
     }
-	cpf = 0;//indica que não é um cpf válido 
+	this->cpf = 0;//indica que não é um cpf válido 
     return;
 }
 
 std::string Pessoa::getNome(){
-    return nome;
+    return this->nome;
 }
 
-void Pessoa::setNome(std::string novoNome){
-    nome = novoNome;
+void Pessoa::setNome(std::string nome){
+    this->nome = nome;
 }
 
 unsigned short int Pessoa::getIdade(){
-    return (unsigned short int)idade;
+    return (unsigned short int)this->idade;
 }
 
-void Pessoa::setIdade(unsigned short int novaIdade){
-	if(novaIdade < 120)
-    	idade = (unsigned char)novaIdade;
+void Pessoa::setIdade(unsigned short int idade){
+	if(idade < 120)
+    	this->idade = (unsigned char)idade;
 	else
-		idade = 0; //indicar erro
+		this->idade = 0; //indicar erro
 }
 
-bool Pessoa::validarCPF(unsigned long cpfTeste){
+bool Pessoa::validarCPF(unsigned long cpf){
 	int somatorioValidaUltimo;
 	int modulo;
 	int somatorioValidaPenultimo = 0;
-	int ultimo = cpfTeste%10;
-	cpfTeste = cpfTeste/10;
-	int penultimo = cpfTeste%10;
-	cpfTeste = cpfTeste/10;
+	int ultimo = cpf%10;
+	cpf = cpf/10;
+	int penultimo = cpf%10;
+	cpf = cpf/10;
 	
 	somatorioValidaUltimo = penultimo*2;
 	for(int i=2; i <= 11; i++){
-		modulo = cpfTeste%10;
-		cpfTeste = cpfTeste/10;
+		modulo = cpf%10;
+		cpf = cpf/10;
 		somatorioValidaPenultimo += modulo*i;
 		somatorioValidaUltimo += modulo*(i+1);
 	}
