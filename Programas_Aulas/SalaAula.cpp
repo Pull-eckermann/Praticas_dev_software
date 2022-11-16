@@ -19,3 +19,7 @@ unsigned int SalaAula::getCapacidade(){
 void SalaAula::setCapcidade(unsigned int capacidade){
 	this->capacidade = capacidade;
 }
+
+std::list<Disciplina*>& SalaAula::getDisciplinas(){
+    return disciplinasMinistradas;
+}

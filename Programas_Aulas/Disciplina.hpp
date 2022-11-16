@@ -4,10 +4,13 @@
 #include <string>
 
 #include "Pessoa.hpp"
+//#include "SalaAula.hpp"
+class SalaAula;//Forward Declaration
 
 class Disciplina{
 	public:
-		Disciplina(std::string nome);
+	Disciplina(std::string nome);
+		Disciplina(std::string nome, SalaAula* sala);
 
 		std::string getNome();
 		void setNome(std::string nome);
@@ -18,11 +21,14 @@ class Disciplina{
 		Pessoa* getProfessor();
         void setProfessor(Pessoa* prof);
 
-		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
+		void setSalaAula(SalaAula* sala);
+        SalaAula* getSalaAula();
 
+		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);		
 	private:
 		std::string nome;
 		unsigned short int cargaHoraria;
 		Pessoa* professor;
+		SalaAula* sala;
 };
 #endif

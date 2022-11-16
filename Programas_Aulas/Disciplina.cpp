@@ -2,8 +2,16 @@
 
 #include <iostream>
 
+#include "SalaAula.hpp"
+
+
 Disciplina::Disciplina(std::string nome)
-	:nome{nome} {
+	:nome{nome},sala{nullptr} {
+}
+
+Disciplina::Disciplina(std::string nome, SalaAula* sala)
+        :Disciplina{nome} {
+    this->setSalaAula(sala);
 }
 
 std::string Disciplina::getNome(){
@@ -28,6 +36,19 @@ Pessoa* Disciplina::getProfessor(){
 
 void Disciplina::setProfessor(Pessoa* prof){
     this->professor = prof;
+}
+
+void Disciplina::setSalaAula(SalaAula* sala){
+    if(this->sala != nullptr)//se já existia uma sala, remover a disciplina dessa sala
+        this->sala->disciplinasMinistradas.remove(this);
+    this->sala = sala;
+    if(this->sala != nullptr)
+        this->sala->disciplinasMinistradas.push_back(this);//adicionar a disciplina na nova sala
+}
+
+
+SalaAula* Disciplina::getSalaAula(){
+    return this->sala;
 }
 
 void Disciplina::imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso){
