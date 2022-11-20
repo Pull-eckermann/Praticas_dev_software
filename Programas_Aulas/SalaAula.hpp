@@ -4,10 +4,10 @@
 #include <string>
 #include <list>
 
-#include "Disciplina.hpp"
+class Disciplina; //Foward declaration
 
 class SalaAula{
-	friend void Disciplina::setSalaAula(SalaAula* salaAula);
+	friend Disciplina;
 
 	public:
 		SalaAula(std::string nome, unsigned int capacidade);
@@ -18,7 +18,9 @@ class SalaAula{
 		unsigned int getCapacidade();
 		void setCapcidade(unsigned int capacidade);
 
-        std::list<Disciplina*>& getDisciplinas();
+		std::list<Disciplina*>& getDisciplinas();
+    void adicionarDisciplina(Disciplina * dis);
+
 	private:
 		std::string nome;
 		unsigned int capacidade;

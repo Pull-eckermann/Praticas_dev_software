@@ -1,7 +1,5 @@
-#include "Disciplina.hpp"
-
 #include <iostream>
-
+#include "Disciplina.hpp"
 #include "SalaAula.hpp"
 
 

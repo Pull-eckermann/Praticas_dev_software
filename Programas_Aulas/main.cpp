@@ -9,6 +9,7 @@
 
 int main(){
     SalaAula sala{"Lab Info 1", 20};
+    SalaAula sala2{"Lab Info 2", 40};
 
     Pessoa prof1{"João", 11111111111, 40};
     Disciplina dis1{"Orientacao a Objetos", &sala};
@@ -18,11 +19,14 @@ int main(){
     Disciplina dis2{"Sistemas Operacionais", &sala};
     dis2.setProfessor(&prof2);
 
-    std::cout << dis1.getSalaAula()->getNome() << std::endl;
-    std::list<Disciplina*> dis{sala.getDisciplinas()};
-    std::list<Disciplina*>::iterator it{dis.begin()};
-    for( ; it != dis.end(); it++)
-        std::cout << (*it)->getNome() << std::endl;
+    std::cout << "Dis1: " << dis1.getSalaAula()->getNome() << std::endl;
+    std::cout << "Dis2: " << dis2.getSalaAula()->getNome() << std::endl;
+
+    dis1.setSalaAula(&sala2);
+    sala2.adicionarDisciplina(&dis2);
+
+    std::cout << "Dis1: " << dis1.getSalaAula()->getNome() << std::endl;
+    std::cout << "Dis2: " << dis2.getSalaAula()->getNome() << std::endl;
 
     return 0;
 }

@@ -2,14 +2,15 @@
 #define DISCIPLINA_H
 
 #include <string>
-
 #include "Pessoa.hpp"
-//#include "SalaAula.hpp"
+
 class SalaAula;//Forward Declaration
 
 class Disciplina{
+	friend SalaAula;
+
 	public:
-	Disciplina(std::string nome);
+		Disciplina(std::string nome);
 		Disciplina(std::string nome, SalaAula* sala);
 
 		std::string getNome();
@@ -19,10 +20,10 @@ class Disciplina{
 		void setCargaHoraria(unsigned int carga);
 
 		Pessoa* getProfessor();
-        void setProfessor(Pessoa* prof);
+    void setProfessor(Pessoa* prof);
 
 		void setSalaAula(SalaAula* sala);
-        SalaAula* getSalaAula();
+    SalaAula* getSalaAula();
 
 		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);		
 	private:
