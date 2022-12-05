@@ -11,7 +11,8 @@ class SalaAula{
 
 	public:
 		SalaAula(std::string nome, unsigned int capacidade);
-		
+		~SalaAula();
+
 		std::string getNome();
 		void setNome(std::string nome);
 

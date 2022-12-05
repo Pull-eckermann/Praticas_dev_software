@@ -1,32 +1,24 @@
 #include <iostream>
 #include <list>
-
 #include "Pessoa.hpp"
 #include "Disciplina.hpp"
 #include "SalaAula.hpp"
+#include "ConteudoMinistrado.hpp"
 
-#include<list>
-
-int main(){
-    SalaAula sala{"Lab Info 1", 20};
-    SalaAula sala2{"Lab Info 2", 40};
-
-    Pessoa prof1{"João", 11111111111, 40};
-    Disciplina dis1{"Orientacao a Objetos", &sala};
-    dis1.setProfessor(&prof1);
-
-    Pessoa prof2{"Maria", 22222222222, 30};    
-    Disciplina dis2{"Sistemas Operacionais", &sala};
-    dis2.setProfessor(&prof2);
-
-    std::cout << "Dis1: " << dis1.getSalaAula()->getNome() << std::endl;
-    std::cout << "Dis2: " << dis2.getSalaAula()->getNome() << std::endl;
-
-    dis1.setSalaAula(&sala2);
-    sala2.adicionarDisciplina(&dis2);
-
-    std::cout << "Dis1: " << dis1.getSalaAula()->getNome() << std::endl;
-    std::cout << "Dis2: " << dis2.getSalaAula()->getNome() << std::endl;
-
+int main() {
+    SalaAula sala{"Lab Info 1", 40};
+    Disciplina dis1{"C++", nullptr};
+    Disciplina* dis2{new Disciplina{"Java", nullptr}};
+   
+    dis1.setSalaAula(&sala);
+    dis2->setSalaAula(&sala);
+ 
+    std::list<Disciplina*> disSala = sala.getDisciplinas();
+    std::list<Disciplina*>::iterator it;
+    for (it = disSala.begin(); it != disSala.end(); it++)
+        std::cout << (*it)->getNome() << std::endl;
+    delete dis2;
+    std::cout << "Fim do Programa" << std::endl;
+    
     return 0;
 }

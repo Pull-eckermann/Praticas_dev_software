@@ -12,6 +12,15 @@ Disciplina::Disciplina(std::string nome, SalaAula* sala)
     this->setSalaAula(sala);
 }
 
+Disciplina::~Disciplina(){
+    //o setSalaAula vai remover a disciplina da sala de aula antiga, caso ela exista
+    std::cerr << "Destruindo disciplina" << std::endl;
+    this->setSalaAula(nullptr);
+    std::list<ConteudoMinistrado*>::iterator it;
+    for(it=conteudos.begin(); it!=conteudos.end(); it++)
+        delete *it;//liberando a memória de cada conteúdo
+}
+
 std::string Disciplina::getNome(){
 	return nome;
 }
@@ -57,4 +66,39 @@ void Disciplina::imprimirDados(std::string& cabecalho, unsigned int cargaTotalCu
     std::cout << "Carga: " << this->cargaHoraria << std::endl;
     std::cout << "Porcentagem do curso: " << pctCurso << "%" << std::endl;
     std::cout << "Professor: " << this->professor->getNome() << std::endl;
+}
+
+void Disciplina::adicionarConteudoMinistrado(std::string conteudo, unsigned short cargaHorariaConteudo){
+    this->conteudos.push_back(new ConteudoMinistrado{conteudo, cargaHorariaConteudo});
+}
+
+void Disciplina::removerConteudoMinistrado(unsigned long id){
+    std::list<ConteudoMinistrado*>::iterator it;
+    for(it = this->conteudos.begin(); it != this->conteudos.end(); it++)
+        if((*it)->getId() == id){
+            conteudos.erase(it);
+            delete *it;
+            break;
+        }
+}
+
+void Disciplina::imprimirConteudosMinistrados(){
+    std::list<ConteudoMinistrado*>::iterator it;
+    for(it = conteudos.begin(); it!=conteudos.end(); it++){
+        std::cout << "Id: " << (*it)->getId() << std::endl
+        << "Conteudo: " << (*it)->getDescricao() << std::endl
+        << "Carga: " << (*it)->getCargaHorariaConteudo() << std::endl << std::endl;
+    }
+}
+
+std::list<ConteudoMinistrado*>& Disciplina::getConteudos(){
+    return this->conteudos;
+}
+
+void Disciplina::limparConteudos(){
+    std::list<ConteudoMinistrado*>::iterator it{conteudos.begin()};
+    while(it != conteudos.end()){
+        delete *it;
+        it = conteudos.erase(it);//it recebe o próximo item válido da lista
+    }
 }

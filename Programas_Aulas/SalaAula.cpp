@@ -5,7 +5,11 @@
 SalaAula::SalaAula(std::string nome, unsigned int capacidade)
 	:nome{nome}, capacidade{capacidade}{
 }
-    
+
+SalaAula:: ~SalaAula(){
+	
+}
+
 std::string SalaAula::getNome(){
 	return this->nome;
 }
