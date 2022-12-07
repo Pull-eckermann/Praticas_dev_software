@@ -14,7 +14,6 @@ Disciplina::Disciplina(std::string nome, SalaAula* sala)
 
 Disciplina::~Disciplina(){
     //o setSalaAula vai remover a disciplina da sala de aula antiga, caso ela exista
-    std::cerr << "Destruindo disciplina" << std::endl;
     this->setSalaAula(nullptr);
     std::list<ConteudoMinistrado*>::iterator it;
     for(it=conteudos.begin(); it!=conteudos.end(); it++)

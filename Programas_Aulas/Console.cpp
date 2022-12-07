@@ -2,6 +2,8 @@
 
 #include<iostream>
 
+Console:: ~Console(){}
+
 void Console::imprimirDadosDisciplina(Disciplina& disciplina){
 	std::cout << "Disicplina: "<< disciplina.getNome() << std::endl;
 	if(disciplina.getProfessor() != nullptr)

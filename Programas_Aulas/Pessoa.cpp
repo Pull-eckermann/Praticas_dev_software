@@ -16,6 +16,8 @@ Pessoa::Pessoa(std::string nome,
 	setIdade(idade);
 }
 
+Pessoa:: ~Pessoa(){}
+
 unsigned long Pessoa::getCpf(){
     //retorna uma cópia do cpf
     return this->cpf;

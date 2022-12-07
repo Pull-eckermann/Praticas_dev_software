@@ -7,7 +7,10 @@ SalaAula::SalaAula(std::string nome, unsigned int capacidade)
 }
 
 SalaAula:: ~SalaAula(){
-	
+	std::list<Disciplina*>::iterator it;
+	for(it = disciplinasMinistradas.begin(); it != disciplinasMinistradas.end(); it++){
+		(*it)->sala = nullptr;
+	}	
 }
 
 std::string SalaAula::getNome(){

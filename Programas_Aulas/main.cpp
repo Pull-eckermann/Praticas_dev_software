@@ -6,10 +6,10 @@
 #include "ConteudoMinistrado.hpp"
 
 int main() {
-    SalaAula sala{"Lab Info 1", 40};
     Disciplina dis1{"C++", nullptr};
     Disciplina* dis2{new Disciplina{"Java", nullptr}};
-   
+    SalaAula sala{"Lab Info 1", 40};
+
     dis1.setSalaAula(&sala);
     dis2->setSalaAula(&sala);
  

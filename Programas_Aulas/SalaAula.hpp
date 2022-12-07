@@ -20,7 +20,7 @@ class SalaAula{
 		void setCapcidade(unsigned int capacidade);
 
 		std::list<Disciplina*>& getDisciplinas();
-    void adicionarDisciplina(Disciplina * dis);
+    		void adicionarDisciplina(Disciplina * dis);
 
 	private:
 		std::string nome;

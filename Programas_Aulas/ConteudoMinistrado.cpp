@@ -7,6 +7,8 @@ ConteudoMinistrado::ConteudoMinistrado(std::string descricao, unsigned short car
 	ConteudoMinistrado::proxId++;
 }
 
+ConteudoMinistrado:: ~ConteudoMinistrado() {}
+
 std::string& ConteudoMinistrado::getDescricao(){
 	return descricao;
 }
