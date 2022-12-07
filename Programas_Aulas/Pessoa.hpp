@@ -13,8 +13,8 @@ class Pessoa{
         unsigned long getCpf();
         void setCpf(unsigned long cpf);
 
-        std::string getNome();
-        void setNome(std::string nome);
+        std::string getNome() const;
+        void setNome(const std::string& nome);
 
         unsigned short int getIdade();
         void setIdade(unsigned short int idade);

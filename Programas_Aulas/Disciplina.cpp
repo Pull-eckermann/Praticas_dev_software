@@ -1,7 +1,8 @@
-#include <iostream>
 #include "Disciplina.hpp"
-#include "SalaAula.hpp"
 
+#include <iostream>
+
+#include "SalaAula.hpp"
 
 Disciplina::Disciplina(std::string nome)
 	:nome{nome},sala{nullptr} {
@@ -13,6 +14,7 @@ Disciplina::Disciplina(std::string nome, SalaAula* sala)
 }
 
 Disciplina::~Disciplina(){
+    std::cerr << "Destruindo a disciplina " << this->nome << "\n";
     //o setSalaAula vai remover a disciplina da sala de aula antiga, caso ela exista
     this->setSalaAula(nullptr);
     std::list<ConteudoMinistrado*>::iterator it;
@@ -52,6 +54,9 @@ void Disciplina::setSalaAula(SalaAula* sala){
         this->sala->disciplinasMinistradas.push_back(this);//adicionar a disciplina na nova sala
 }
 
+void Disciplina::anularSalaAula(){
+	this->sala = nullptr;
+}
 
 SalaAula* Disciplina::getSalaAula(){
     return this->sala;
@@ -71,22 +76,12 @@ void Disciplina::adicionarConteudoMinistrado(std::string conteudo, unsigned shor
     this->conteudos.push_back(new ConteudoMinistrado{conteudo, cargaHorariaConteudo});
 }
 
-void Disciplina::removerConteudoMinistrado(unsigned long id){
-    std::list<ConteudoMinistrado*>::iterator it;
-    for(it = this->conteudos.begin(); it != this->conteudos.end(); it++)
-        if((*it)->getId() == id){
-            conteudos.erase(it);
-            delete *it;
-            break;
-        }
-}
-
 void Disciplina::imprimirConteudosMinistrados(){
     std::list<ConteudoMinistrado*>::iterator it;
     for(it = conteudos.begin(); it!=conteudos.end(); it++){
         std::cout << "Id: " << (*it)->getId() << std::endl
-        << "Conteudo: " << (*it)->getDescricao() << std::endl
-        << "Carga: " << (*it)->getCargaHorariaConteudo() << std::endl << std::endl;
+            << "Conteudo: " << (*it)->getDescricao() << std::endl
+            << "Carga: " << (*it)->getCargaHorariaConteudo() << std::endl << std::endl;
     }
 }
 
@@ -94,10 +89,24 @@ std::list<ConteudoMinistrado*>& Disciplina::getConteudos(){
     return this->conteudos;
 }
 
-void Disciplina::limparConteudos(){
-    std::list<ConteudoMinistrado*>::iterator it{conteudos.begin()};
-    while(it != conteudos.end()){
-        delete *it;
-        it = conteudos.erase(it);//it recebe o próximo item válido da lista
-    }
+void Disciplina::adicionarAluno(Pessoa* aluno){
+    this->alunos.push_back(aluno);
+}
+
+void Disciplina::removerAluno(Pessoa* aluno){
+    this->alunos.remove(aluno);
+}
+
+void Disciplina::removerAluno(unsigned long cpf){
+    std::list<Pessoa*>::iterator it;
+
+    for(it = this->alunos.begin(); it != this->alunos.end(); it++)
+        if((*it)->getCpf() == cpf)
+            break;
+    if(it != this->alunos.end())
+        alunos.erase(it);
+}
+
+std::list<Pessoa*>& Disciplina::getAlunos(){//retornamos uma referência para a lista, o que custa mais barato
+    return alunos;
 }

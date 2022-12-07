@@ -32,11 +32,11 @@ void Pessoa::setCpf(unsigned long cpf){
     return;
 }
 
-std::string Pessoa::getNome(){
+std::string Pessoa::getNome() const{
     return this->nome;
 }
 
-void Pessoa::setNome(std::string nome){
+void Pessoa::setNome(const std::string& nome){
     this->nome = nome;
 }
 
