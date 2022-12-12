@@ -22,7 +22,7 @@ Disciplina::~Disciplina(){
         delete *it;//liberando a memória de cada conteúdo
 }
 
-std::string Disciplina::getNome(){
+std::string Disciplina::getNome() const{
 	return nome;
 }
 
@@ -30,7 +30,7 @@ void Disciplina::setNome(std::string nome){
 	this->nome = nome;
 }
 
-int Disciplina::getCargaHoraria(){
+int Disciplina::getCargaHoraria() const{
 	return this->cargaHoraria;
 }
 
@@ -38,7 +38,7 @@ void Disciplina::setCargaHoraria(unsigned int carga){
 	this->cargaHoraria = carga;
 }
 
-Pessoa* Disciplina::getProfessor(){
+Pessoa* Disciplina::getProfessor() const{
     return this->professor;
 }
 
@@ -107,6 +107,6 @@ void Disciplina::removerAluno(unsigned long cpf){
         alunos.erase(it);
 }
 
-std::list<Pessoa*>& Disciplina::getAlunos(){//retornamos uma referência para a lista, o que custa mais barato
-    return alunos;
+const std::list<Pessoa*>& Disciplina::getAlunos() const{//retornamos uma referência para a lista, o que custa mais barato
+    return this->alunos;
 }

@@ -18,7 +18,7 @@ Pessoa::Pessoa(std::string nome,
 
 Pessoa:: ~Pessoa(){}
 
-unsigned long Pessoa::getCpf(){
+unsigned long Pessoa::getCpf() const{
     //retorna uma cópia do cpf
     return this->cpf;
 }
@@ -40,7 +40,7 @@ void Pessoa::setNome(const std::string& nome){
     this->nome = nome;
 }
 
-unsigned short int Pessoa::getIdade(){
+unsigned short int Pessoa::getIdade() const{
     return (unsigned short int)idade;
 }
 
@@ -51,7 +51,7 @@ void Pessoa::setIdade(unsigned short int novaIdade){
 		idade = 0; //indicar erro
 }
 
-void Pessoa::imprimirEnderecoMemoria(){
+void Pessoa::imprimirEnderecoMemoria() const{
     std::cout << this << std::endl;
 }
 

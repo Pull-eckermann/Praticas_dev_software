@@ -10,16 +10,16 @@ class Pessoa{
         Pessoa(std::string nome, unsigned long cpf, unsigned short int idade);
 	~Pessoa();
 
-        unsigned long getCpf();
+        unsigned long getCpf() const;
         void setCpf(unsigned long cpf);
 
         std::string getNome() const;
         void setNome(const std::string& nome);
 
-        unsigned short int getIdade();
+        unsigned short int getIdade() const;
         void setIdade(unsigned short int idade);
 
-        void imprimirEnderecoMemoria();
+        void imprimirEnderecoMemoria() const;
     private:
         bool validarCPF(unsigned long cpfTeste);
 

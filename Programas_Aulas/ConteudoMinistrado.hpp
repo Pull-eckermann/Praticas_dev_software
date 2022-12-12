@@ -9,14 +9,14 @@ class ConteudoMinistrado{
 		~ConteudoMinistrado();
 
 		std::string& getDescricao();
-		unsigned short getCargaHorariaConteudo();
-		unsigned int getId();
+		unsigned short getCargaHorariaConteudo() const;
+		unsigned int getId() const;
 		
 	private:
 		static unsigned	int proxId;
 
 		std::string descricao;
-		unsigned short cargaHorariaConteudo;
-		unsigned int id;
+		const unsigned short cargaHorariaConteudo;
+		const unsigned int id;
 };
 #endif

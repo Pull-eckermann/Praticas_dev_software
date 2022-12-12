@@ -11,12 +11,12 @@ ConteudoMinistrado:: ~ConteudoMinistrado() {}
 
 std::string& ConteudoMinistrado::getDescricao(){
 	return descricao;
-}
+}	
 
-unsigned short ConteudoMinistrado::getCargaHorariaConteudo(){
+unsigned short ConteudoMinistrado::getCargaHorariaConteudo() const{
 	return cargaHorariaConteudo;
 }
 
-unsigned int ConteudoMinistrado::getId(){
+unsigned int ConteudoMinistrado::getId() const{
 	return id;
 }

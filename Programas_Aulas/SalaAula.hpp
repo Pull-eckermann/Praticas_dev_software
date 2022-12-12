@@ -13,14 +13,14 @@ class SalaAula{
 		SalaAula(std::string nome, unsigned int capacidade);
 		~SalaAula();
 
-		std::string getNome();
+		std::string getNome() const;
 		void setNome(std::string nome);
 
-		unsigned int getCapacidade();
+		unsigned int getCapacidade()	const;
 		void setCapcidade(unsigned int capacidade);
 
-		std::list<Disciplina*>& getDisciplinas();
-    		void adicionarDisciplina(Disciplina * dis);
+		const std::list<Disciplina*>& getDisciplinas() const;
+    void adicionarDisciplina(Disciplina * dis);
 
 	private:
 		std::string nome;

@@ -10,35 +10,37 @@
 class SalaAula;//Forward Declaration
 
 class Disciplina{
+	friend SalaAula;
+
 	public:
-	Disciplina(std::string nome);
+		Disciplina(std::string nome);
 		Disciplina(std::string nome, SalaAula* sala);
 
 		~Disciplina();
 
-		std::string getNome();
+		std::string getNome() const;
 		void setNome(std::string nome);
 		
-		int getCargaHoraria();
+		int getCargaHoraria() const;
 		void setCargaHoraria(unsigned int carga);
 
-		Pessoa* getProfessor();
-        void setProfessor(Pessoa* prof);
+		Pessoa* getProfessor() const;
+    void setProfessor(Pessoa* prof);
 
 		void setSalaAula(SalaAula* sala);
-        SalaAula* getSalaAula();
+    SalaAula* getSalaAula();
 		void anularSalaAula();
 
 		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
 
 		void adicionarConteudoMinistrado(std::string conteudo, unsigned short cargaHorariaConteudo);
-        void imprimirConteudosMinistrados();
+    void imprimirConteudosMinistrados();
 		std::list<ConteudoMinistrado*>& getConteudos();
 
 		void adicionarAluno(Pessoa* aluno);
 		void removerAluno(Pessoa* aluno);
 		void removerAluno(unsigned long cpf);
-		std::list<Pessoa*>& getAlunos();
+		const std::list<Pessoa*>& getAlunos() const;
 	private:
 		std::string nome;
 		unsigned short int cargaHoraria;
