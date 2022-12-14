@@ -4,7 +4,8 @@
 #include <string>
 #include <list>
 
-#include "Pessoa.hpp"
+#include "Aluno.hpp"
+#include "Professor.hpp"
 #include "ConteudoMinistrado.hpp"
 
 class SalaAula;//Forward Declaration
@@ -24,30 +25,30 @@ class Disciplina{
 		int getCargaHoraria() const;
 		void setCargaHoraria(unsigned int carga);
 
-		Pessoa* getProfessor() const;
-    void setProfessor(Pessoa* prof);
+		Professor* getProfessor() const;
+    	void setProfessor(Professor* prof);
 
 		void setSalaAula(SalaAula* sala);
-    SalaAula* getSalaAula();
+    	SalaAula* getSalaAula();
 		void anularSalaAula();
 
 		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
 
 		void adicionarConteudoMinistrado(std::string conteudo, unsigned short cargaHorariaConteudo);
-    void imprimirConteudosMinistrados();
+    	void imprimirConteudosMinistrados();
 		std::list<ConteudoMinistrado*>& getConteudos();
 
-		void adicionarAluno(Pessoa* aluno);
-		void removerAluno(Pessoa* aluno);
+		void adicionarAluno(Aluno* aluno);
+		void removerAluno(Aluno* aluno);
 		void removerAluno(unsigned long cpf);
-		const std::list<Pessoa*>& getAlunos() const;
+		const std::list<Aluno*>& getAlunos() const;
 	private:
 		std::string nome;
 		unsigned short int cargaHoraria;
-		Pessoa* professor;
+		Professor* professor;
 		SalaAula* sala;
 
 		std::list<ConteudoMinistrado*> conteudos;
-		std::list<Pessoa*> alunos;
+		std::list<Aluno*> alunos;
 };
 #endif

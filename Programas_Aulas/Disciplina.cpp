@@ -38,11 +38,11 @@ void Disciplina::setCargaHoraria(unsigned int carga){
 	this->cargaHoraria = carga;
 }
 
-Pessoa* Disciplina::getProfessor() const{
+Professor* Disciplina::getProfessor() const{
     return this->professor;
 }
 
-void Disciplina::setProfessor(Pessoa* prof){
+void Disciplina::setProfessor(Professor* prof){
     this->professor = prof;
 }
 
@@ -89,16 +89,16 @@ std::list<ConteudoMinistrado*>& Disciplina::getConteudos(){
     return this->conteudos;
 }
 
-void Disciplina::adicionarAluno(Pessoa* aluno){
+void Disciplina::adicionarAluno(Aluno* aluno){
     this->alunos.push_back(aluno);
 }
 
-void Disciplina::removerAluno(Pessoa* aluno){
+void Disciplina::removerAluno(Aluno* aluno){
     this->alunos.remove(aluno);
 }
 
 void Disciplina::removerAluno(unsigned long cpf){
-    std::list<Pessoa*>::iterator it;
+    std::list<Aluno*>::iterator it;
 
     for(it = this->alunos.begin(); it != this->alunos.end(); it++)
         if((*it)->getCpf() == cpf)
@@ -107,6 +107,6 @@ void Disciplina::removerAluno(unsigned long cpf){
         alunos.erase(it);
 }
 
-const std::list<Pessoa*>& Disciplina::getAlunos() const{//retornamos uma referência para a lista, o que custa mais barato
+const std::list<Aluno*>& Disciplina::getAlunos() const{//retornamos uma referência para a lista, o que custa mais barato
     return this->alunos;
 }

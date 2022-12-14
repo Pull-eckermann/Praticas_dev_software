@@ -9,11 +9,9 @@ Pessoa::Pessoa(std::string nome)
 }
 
 Pessoa::Pessoa(std::string nome,
-	unsigned long cpf,
-	unsigned short int idade)
+	unsigned long cpf)
 		:Pessoa{nome}{
 	setCpf(cpf);
-	setIdade(idade);
 }
 
 Pessoa:: ~Pessoa(){}

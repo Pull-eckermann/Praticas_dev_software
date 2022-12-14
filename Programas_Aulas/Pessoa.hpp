@@ -1,14 +1,14 @@
 #ifndef PESSOA_H
 #define PESSOA_H
 
-#include<string>
+#include <string>
 
 class Pessoa{
     public:
         Pessoa();
         Pessoa(std::string nome);
-        Pessoa(std::string nome, unsigned long cpf, unsigned short int idade);
-	~Pessoa();
+        Pessoa(std::string nome, unsigned long cpf);
+	    ~Pessoa();
 
         unsigned long getCpf() const;
         void setCpf(unsigned long cpf);
@@ -20,7 +20,7 @@ class Pessoa{
         void setIdade(unsigned short int idade);
 
         void imprimirEnderecoMemoria() const;
-    private:
+    protected:
         bool validarCPF(unsigned long cpfTeste);
 
         std::string nome;
