@@ -91,7 +91,7 @@ std::list<ConteudoMinistrado*>& Disciplina::getConteudos(){
 
 void Disciplina::adicionarAluno(Aluno* aluno){
     this->alunos.push_back(aluno);
-}
+}   
 
 void Disciplina::removerAluno(Aluno* aluno){
     this->alunos.remove(aluno);
