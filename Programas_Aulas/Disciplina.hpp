@@ -4,51 +4,46 @@
 #include <string>
 #include <list>
 
-#include "Aluno.hpp"
-#include "Professor.hpp"
 #include "ConteudoMinistrado.hpp"
-
-class SalaAula;//Forward Declaration
+#include "Professor.hpp"
+#include "Pessoa.hpp"
+class SalaAula;//forward declaration
+//include "SalaAula.hpp"
 
 class Disciplina{
-	friend SalaAula;
-
 	public:
-		Disciplina(std::string nome);
 		Disciplina(std::string nome, SalaAula* sala);
+		virtual ~Disciplina();
 
-		~Disciplina();
-
-		std::string getNome() const;
+		std::string getNome();
 		void setNome(std::string nome);
 		
-		int getCargaHoraria() const;
-		void setCargaHoraria(unsigned int carga);
+		int getCargaHoraria();
+		void setCargaHoraria(unsigned int cargaHoraria);
+		
+		Professor* getProfessor();
+		void setProfessor(Professor* professor);
 
-		Professor* getProfessor() const;
-    	void setProfessor(Professor* prof);
+		void adicionarAluno(Pessoa* aluno);
+		void removerAluno(Pessoa* aluno);
+		void removerAluno(unsigned long cpf);
+		const std::list<Pessoa*>& getAlunos() const;
 
 		void setSalaAula(SalaAula* sala);
-    	SalaAula* getSalaAula();
+		SalaAula* getSalaAula();
 		void anularSalaAula();
 
-		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
+		void imprimeDados(std::string& cabecalho, unsigned int& cargaTotalCurso);
 
 		void adicionarConteudoMinistrado(std::string conteudo, unsigned short cargaHorariaConteudo);
-    	void imprimirConteudosMinistrados();
-		std::list<ConteudoMinistrado*>& getConteudos();
-
-		void adicionarAluno(Aluno* aluno);
-		void removerAluno(Aluno* aluno);
-		void removerAluno(unsigned long cpf);
-		const std::list<Aluno*>& getAlunos() const;
+		void imprimirConteudosMinistrados();
 	private:
 		std::string nome;
 		unsigned short int cargaHoraria;
+
 		Professor* professor;
 		SalaAula* sala;
-
+		std::list<Pessoa*> alunos;
 		std::list<ConteudoMinistrado*> conteudos;
-		std::list<Aluno*> alunos;
 };
 #endif

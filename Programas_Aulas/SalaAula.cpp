@@ -1,43 +1,41 @@
 #include "SalaAula.hpp"
-#include "Disciplina.hpp"
-
+#include <iostream>
 
 SalaAula::SalaAula(std::string nome, unsigned int capacidade)
 	:nome{nome}, capacidade{capacidade}{
 }
 
-SalaAula:: ~SalaAula(){
-	std::list<Disciplina*>::iterator it;
-	for(it = disciplinasMinistradas.begin(); it != disciplinasMinistradas.end(); it++){
-		(*it)->sala = nullptr;
-	}	
+SalaAula::~SalaAula(){
+	std::cerr << "Destruindo Sala " << nome << std::endl;
+	std::list<Disciplina*>::iterator it{disciplinasMinistradas.begin()};
+	for( ; it != disciplinasMinistradas.end(); it++)
+		(*it)->anularSalaAula();
 }
-
-std::string SalaAula::getNome() const{
-	return this->nome;
+    
+std::string SalaAula::getNome(){
+	return nome;
 }
 
 void SalaAula::setNome(std::string nome){
 	this->nome = nome;
 }
 
-unsigned int SalaAula::getCapacidade() const{
-	return this->capacidade;
+unsigned int SalaAula::getCapacidade(){
+	return capacidade;
 }
 
 void SalaAula::setCapcidade(unsigned int capacidade){
-	this->capacidade = capacidade;	
+	this->capacidade = capacidade;
 }
 
-const std::list<Disciplina*>& SalaAula::getDisciplinas() const{
-  return disciplinasMinistradas;
+void SalaAula::adicionarDisciplina(Disciplina* disciplina){
+	disciplinasMinistradas.push_back(disciplina);
 }
 
-void SalaAula::adicionarDisciplina(Disciplina *dis){
-	if(dis != nullptr){
-		this->disciplinasMinistradas.push_back(dis);
-		if(dis->sala != nullptr)
-			dis->sala->disciplinasMinistradas.remove(dis);
-		dis->sala = this;
-	}
+void SalaAula::removerDisciplina(Disciplina* disciplina){
+	disciplinasMinistradas.remove(disciplina);
+}
+
+std::list<Disciplina*>& SalaAula::getDisciplinas(){
+	return disciplinasMinistradas;
 }

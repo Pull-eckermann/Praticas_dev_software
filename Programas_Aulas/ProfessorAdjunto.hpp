@@ -1,19 +1,14 @@
-#ifndef PROFESSORADJUNTO_HPP
-#define PROFESSORADJUNTO_HPP
+#ifndef PROFESSOR_ADJUNTO_HPP
+#define PROFESSOR_ADJUNTO_HPP
 
 #include "Professor.hpp"
-#include <string>
 
 class ProfessorAdjunto : public Professor{
-    public:
-        using Professor::Professor;
+	public:
+		using Professor::Professor;
 
-        unsigned int getSalario() const;
+		virtual ~ProfessorAdjunto();
 
-        std::string getPesquisa() const;
-        void setPesquisa(std::string l_pesquisa);
-
-    private:
-        std::string l_pesquisa;
+		virtual unsigned int getSalario() const;
 };
 #endif

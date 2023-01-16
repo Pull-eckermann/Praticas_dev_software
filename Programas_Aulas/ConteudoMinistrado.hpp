@@ -2,21 +2,21 @@
 #define CONTEUDO_MINISTRADO_HPP
 
 #include<string>
+#include<list>
 
 class ConteudoMinistrado{
 	public:
 		ConteudoMinistrado(std::string descricao, unsigned short cargaHorariaConteudo);
-		~ConteudoMinistrado();
+		virtual ~ConteudoMinistrado() = default;
 
 		std::string& getDescricao();
-		unsigned short getCargaHorariaConteudo() const;
-		unsigned int getId() const;
-		
+		unsigned short getCargaHorariaConteudo();
+		unsigned int getId();
 	private:
-		static unsigned	int proxId;
+		static unsigned int proxId;
 
 		std::string descricao;
-		const unsigned short cargaHorariaConteudo;
-		const unsigned int id;
+		unsigned short cargaHorariaConteudo;
+		unsigned int id;
 };
 #endif

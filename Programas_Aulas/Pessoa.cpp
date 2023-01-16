@@ -1,56 +1,63 @@
 #include "Pessoa.hpp"
+#include<iostream>
 
-#include <iostream>
-
-Pessoa::Pessoa(){}
+Pessoa::Pessoa(){
+}
 
 Pessoa::Pessoa(std::string nome)
-	:nome{nome}{
+		:nome{nome}{
+	std::cout << "Construtor de Pessoa " << std::endl;
 }
 
-Pessoa::Pessoa(std::string nome,
-	unsigned long cpf)
-		:Pessoa{nome}{
-	setCpf(cpf);
+Pessoa::Pessoa(std::string nome,  unsigned short int idade)
+		:nome{nome},idade{(unsigned char)idade}{
+	std::cout << "Construtor de Pessoa " << std::endl;
 }
 
-Pessoa:: ~Pessoa(){}
-
-unsigned long Pessoa::getCpf() const{
-    //retorna uma cópia do cpf
-    return this->cpf;
+Pessoa::Pessoa(std::string nome, unsigned long cpf, unsigned short int idade)
+		:Pessoa{nome, idade}{
+	if(validarCPF(cpf))
+		this->cpf = cpf;
+	else
+		this->cpf = 0;
+	std::cout << "Construtor de Pessoa " << std::endl;
 }
 
-void Pessoa::setCpf(unsigned long cpf){
-    if(validarCPF(cpf)){
-        this->cpf = cpf;
-        return;
-    }
-	this->cpf = 0;//indica que não é um cpf válido 
-    return;
+Pessoa::~Pessoa(){
+	std::cout << "Destrutor de Pessoa " << std::endl;
+}
+
+unsigned long Pessoa::getCpf(){
+	//retorna uma cópia do cpf
+	return this->cpf;
+}
+
+bool Pessoa::setCpf(unsigned long cpf){
+	if(validarCPF(cpf)){
+		this->cpf = cpf;
+		return true;
+	}
+	return false;
 }
 
 std::string Pessoa::getNome() const{
-    return this->nome;
+	return this->nome;
 }
 
 void Pessoa::setNome(const std::string& nome){
-    this->nome = nome;
+	this->nome = nome;
 }
 
-unsigned short int Pessoa::getIdade() const{
-    return (unsigned short int)idade;
+unsigned short int Pessoa::getIdade(){
+	return (unsigned short int)idade;
 }
 
-void Pessoa::setIdade(unsigned short int novaIdade){
-	if(novaIdade < 120)
-    	idade = (unsigned char)novaIdade;
-	else
-		idade = 0; //indicar erro
+void Pessoa::setIdade(unsigned short int idade){
+	this->idade = (unsigned char)idade;
 }
 
-void Pessoa::imprimirEnderecoMemoria() const{
-    std::cout << this << std::endl;
+void Pessoa::imprimirEnderecoMemoria(){
+	std::cout << this << std::endl;
 }
 
 bool Pessoa::validarCPF(unsigned long cpfTeste){

@@ -3,25 +3,22 @@
 
 #include <string>
 #include <list>
-
-class Disciplina; //Foward declaration
+#include "Disciplina.hpp"
 
 class SalaAula{
-	friend Disciplina;
-
 	public:
 		SalaAula(std::string nome, unsigned int capacidade);
-		~SalaAula();
+		virtual ~SalaAula();
 
-		std::string getNome() const;
+		std::string getNome();
 		void setNome(std::string nome);
 
-		unsigned int getCapacidade()	const;
+		unsigned int getCapacidade();
 		void setCapcidade(unsigned int capacidade);
 
-		const std::list<Disciplina*>& getDisciplinas() const;
-    void adicionarDisciplina(Disciplina * dis);
-
+		void adicionarDisciplina(Disciplina* disciplina);
+		void removerDisciplina(Disciplina* disciplina);
+		std::list<Disciplina*>& getDisciplinas();
 	private:
 		std::string nome;
 		unsigned int capacidade;

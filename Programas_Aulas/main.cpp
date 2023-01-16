@@ -1,11 +1,13 @@
 #include <iostream>
-#include "Aluno.hpp"
+
+#include "ProfessorEngenheiro.hpp"
+#include "Professor.hpp"
+#include "Engenheiro.hpp"
 
 int main(){
-	Aluno p{"Erick", 11111111111, 22, "GRR2018675"};
+	ProfessorEngenheiro pe{"Maria", 11111111111,85, 40, 1234};
 	
-	std::cout << p.getNome() << std::endl;
-	std::cout << p.getGRR() << std::endl;
-	
+	std::cout << pe.getNome() << std::endl;
+
 	return 0;
 }
