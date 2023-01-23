@@ -8,7 +8,7 @@ class Pessoa{
 		Pessoa();
 		Pessoa(std::string nome);
 		Pessoa(std::string nome, unsigned short int idade);
-		Pessoa(std::string nome, unsigned long cpf, unsigned short int idade);
+		Pessoa(std::string nome, unsigned long cpf);
 		
 		virtual ~Pessoa();
 

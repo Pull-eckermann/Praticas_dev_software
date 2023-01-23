@@ -1,28 +1,25 @@
 #include "Pessoa.hpp"
-#include<iostream>
-#include"CPFInvalidoException.hpp"
+#include <iostream>
+#include "CPFInvalidoException.hpp"
+#include "InvalidAgeEx.hpp"
 
 Pessoa::Pessoa(){
 }
 
 Pessoa::Pessoa(std::string nome)
 		:nome{nome}{
-	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
 Pessoa::Pessoa(std::string nome,  unsigned short int idade)
 		:nome{nome},idade{(unsigned char)idade}{
-	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
-Pessoa::Pessoa(std::string nome, unsigned long cpf, unsigned short int idade)
-		:Pessoa{nome, idade}{
+Pessoa::Pessoa(std::string nome, unsigned long cpf)
+		:Pessoa{nome}{
 	setCpf(cpf);
-	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
 Pessoa::~Pessoa(){
-	//std::cout << "Destrutor de Pessoa " << std::endl;
 }
 
 unsigned long Pessoa::getCpf(){
@@ -51,7 +48,7 @@ unsigned short int Pessoa::getIdade(){
 
 void Pessoa::setIdade(unsigned short int idade){
 	if(idade > 150)
-		throw std::invalid_argument{"Idade Invalida."};
+		throw InvalidAgeEx{idade};
 	this->idade = (unsigned char)idade;
 }
 

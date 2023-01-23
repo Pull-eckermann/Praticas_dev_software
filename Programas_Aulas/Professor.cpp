@@ -1,20 +1,21 @@
 #include "Professor.hpp"
 
 #include<iostream>
+#include<stdexcept>
 
 Professor::Professor(const std::string& nome, const unsigned long cpf,
-	       	const unsigned int valorHora, const unsigned short cargaHoraria)
+	  const unsigned int valorHora, const unsigned short cargaHoraria)
 		:Pessoa(nome, cpf), valorHora(valorHora), cargaHoraria(cargaHoraria) {
-	std::cout << "Construindo Professor" << std::endl;
 }
 
 Professor::~Professor(){
-	std::cout << "Destrutor de Professor" << std::endl;
 }
 
 void Professor::setValorHora(const unsigned int valorHora){
 	if(valorHora > 0)
 		this->valorHora = valorHora;
+	else
+		throw std::invalid_argument{"Valor Hora do Professor menor que 0"};
 }
 
 unsigned int Professor::getValorHora() const{
@@ -24,6 +25,8 @@ unsigned int Professor::getValorHora() const{
 void Professor::setCargaHoraria(const unsigned short cargaHoraria){
 	if(cargaHoraria > 0)
 		this->cargaHoraria = cargaHoraria;
+	else
+		throw std::invalid_argument{"Carga horaria do Professor menor que 0"};
 }
 
 unsigned short Professor::getCargaHoraria() const{

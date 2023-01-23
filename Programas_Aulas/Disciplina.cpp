@@ -2,6 +2,8 @@
 #include "SalaAula.hpp"
 
 #include<iostream>
+#include<stdexcept>
+
 
 Disciplina::Disciplina(std::string nome, SalaAula* sala)
 	:nome{nome}, sala(nullptr) {
@@ -9,7 +11,6 @@ Disciplina::Disciplina(std::string nome, SalaAula* sala)
 }
 
 Disciplina::~Disciplina(){
-	std::cerr << "Destruindo disciplina " << nome << std::endl;
 	//o setSalaAula vai remover a disciplina da sala de aula antiga, caso ela exista
 	this->setSalaAula(nullptr);
 	std::list<ConteudoMinistrado*>::iterator it;
@@ -18,11 +19,17 @@ Disciplina::~Disciplina(){
 }
 
 void Disciplina::adicionarAluno(Pessoa* aluno){
-	this->alunos.push_back(aluno);
+	if (aluno != nullptr)
+		this->alunos.push_back(aluno);
+	else
+		throw std::invalid_argument{"Aluno invalido, impossivel adicionar"};
 }
 
 void Disciplina::removerAluno(Pessoa* aluno){
-	this->alunos.remove(aluno);
+	if (aluno != nullptr)
+		this->alunos.remove(aluno);
+	else
+		throw std::invalid_argument{"Aluno invalido, impossivel remover"};
 }
 
 void Disciplina::removerAluno(unsigned long cpf){
@@ -60,7 +67,10 @@ Professor* Disciplina::getProfessor(){
 }
 
 void Disciplina::setProfessor(Professor* professor){
-	this->professor = professor;
+	if(professor != nullptr)
+		this->professor = professor;
+	else
+		throw std::invalid_argument{"Professor nulo"};
 }
 
 void Disciplina::setSalaAula(SalaAula* sala){
