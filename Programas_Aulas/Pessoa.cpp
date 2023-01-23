@@ -1,30 +1,28 @@
 #include "Pessoa.hpp"
 #include<iostream>
+#include"CPFInvalidoException.hpp"
 
 Pessoa::Pessoa(){
 }
 
 Pessoa::Pessoa(std::string nome)
 		:nome{nome}{
-	std::cout << "Construtor de Pessoa " << std::endl;
+	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
 Pessoa::Pessoa(std::string nome,  unsigned short int idade)
 		:nome{nome},idade{(unsigned char)idade}{
-	std::cout << "Construtor de Pessoa " << std::endl;
+	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
 Pessoa::Pessoa(std::string nome, unsigned long cpf, unsigned short int idade)
 		:Pessoa{nome, idade}{
-	if(validarCPF(cpf))
-		this->cpf = cpf;
-	else
-		this->cpf = 0;
-	std::cout << "Construtor de Pessoa " << std::endl;
+	setCpf(cpf);
+	//std::cout << "Construtor de Pessoa " << std::endl;
 }
 
 Pessoa::~Pessoa(){
-	std::cout << "Destrutor de Pessoa " << std::endl;
+	//std::cout << "Destrutor de Pessoa " << std::endl;
 }
 
 unsigned long Pessoa::getCpf(){
@@ -32,12 +30,11 @@ unsigned long Pessoa::getCpf(){
 	return this->cpf;
 }
 
-bool Pessoa::setCpf(unsigned long cpf){
-	if(validarCPF(cpf)){
-		this->cpf = cpf;
-		return true;
+void Pessoa::setCpf(unsigned long cpf){
+	if(!validarCPF(cpf)){
+		throw CPFInvalidoException(cpf);
 	}
-	return false;
+	this->cpf = cpf;
 }
 
 std::string Pessoa::getNome() const{
@@ -53,6 +50,8 @@ unsigned short int Pessoa::getIdade(){
 }
 
 void Pessoa::setIdade(unsigned short int idade){
+	if(idade > 150)
+		throw std::invalid_argument{"Idade Invalida."};
 	this->idade = (unsigned char)idade;
 }
 

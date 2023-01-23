@@ -13,7 +13,7 @@ class Pessoa{
 		virtual ~Pessoa();
 
 		unsigned long getCpf();
-		bool setCpf(unsigned long cpf);
+		void setCpf(unsigned long cpf);
 
 		std::string getNome() const;
 		void setNome(const std::string& nome);

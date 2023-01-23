@@ -1,16 +1,21 @@
 #include <iostream>
 
-#include "ProfessorEngenheiro.hpp"
-#include "Professor.hpp"
-#include "Engenheiro.hpp"
+#include "Pessoa.hpp"
 
 int main(){
-	ProfessorEngenheiro pe{"Maria", 11111111111,85, 40, 1234};
-	
-	std::cout << pe.getNome() << std::endl;
-	std::cout << "Salario: " << pe.getSalario() << std::endl;
-	std::cout << "Salario Professor: " << pe.Professor::getSalario() << std::endl;
-        std::cout << "Salario Engenheiro: " << pe.Engenheiro::getSalario() << std::endl;
+	Pessoa *p{nullptr};
 
+	try{
+		p = new Pessoa{nome, cpf, 18};
+		p->setIdade(idade);
+		std::cout << p->getNome()
+			<< " " << p->getCpf()
+			<< " " << p->getIdade() << std::endl;
+	}catch(std::invalid_argument& iv){
+		std::cout << "Argumento invalido: " << iv.what() << std::endl;
+	}catch(CPFInvalidoException& cpfe){
+		std::cout << "Erro de CPF: " << cpfe.what() << cpfe.cpf << std::endl;
+	}
+	delete p;
 	return 0;
 }
