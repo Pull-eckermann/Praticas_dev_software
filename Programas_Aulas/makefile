@@ -3,11 +3,11 @@ nomePrograma=aula
 
 all: $(nomePrograma)
 
-$(nomePrograma): main.o Pessoa.o Disciplina.o SalaAula.o ConteudoMinistrado.o Console.o Professor.o ProfessorAdjunto.o Engenheiro.o ProfessorEngenheiro.o CPFInvalidoException.o InvalidAgeEx.o EnumTipoDisciplina.o
-	g++ -o $(nomePrograma) main.o Pessoa.o Disciplina.o SalaAula.o ConteudoMinistrado.o Console.o Professor.o ProfessorAdjunto.o Engenheiro.o ProfessorEngenheiro.o CPFInvalidoException.o InvalidAgeEx.o numTipoDisciplina.o $(parametrosCompilacao)
+$(nomePrograma): main.o Pessoa.o Disciplina.o SalaAula.o ConteudoMinistrado.o Console.o Professor.o ProfessorAdjunto.o Engenheiro.o ProfessorEngenheiro.o CPFInvalidoException.o InvalidAgeEx.o EnumTipoDisciplina.hpp
+	g++ -o $(nomePrograma) main.o Pessoa.o Disciplina.o SalaAula.o ConteudoMinistrado.o Console.o Professor.o ProfessorAdjunto.o Engenheiro.o ProfessorEngenheiro.o CPFInvalidoException.o InvalidAgeEx.o EnumTipoDisciplina.hpp $(parametrosCompilacao)
 
 main.o: main.cpp EnumTipoDisciplina.hpp
-	g++ -c main.cpp $(parametrosCompilacao)
+	g++ -c main.cpp EnumTipoDisciplina.hpp $(parametrosCompilacao)
 
 Pessoa.o: Pessoa.hpp Pessoa.cpp
 	g++ -c Pessoa.cpp $(parametrosCompilacao)

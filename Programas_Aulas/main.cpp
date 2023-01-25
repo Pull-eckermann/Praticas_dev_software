@@ -12,7 +12,7 @@ int main(){
 	try{
 		ufpr::Professor p{"Joao", 7757550955, 14000, 40};
 		ufpr::SalaAula *sa = new ufpr::SalaAula{"PA-01", 40};
-		ufpr::Disciplina dis{"Historia", sa, ufpr::EnumTipoDisciplina::OPTATIVA};
+		ufpr::Disciplina dis{"Historia", sa, ufpr::EnumTipoDisciplina::MANDATORIA};
 
 		dis.setCargaHoraria(20);
 		p.setIdade(60);

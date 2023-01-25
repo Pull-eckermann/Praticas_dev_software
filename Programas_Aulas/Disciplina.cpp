@@ -72,7 +72,7 @@ void Disciplina::setCargaHoraria(unsigned int cargaHoraria){
 		if(cargaHoraria >= 30)
 			this->cargaHoraria = cargaHoraria;
 		else
-			throw std::invalid_argument{"Disciplina mandaria com carga horaria menor que 30 horas"};
+			throw std::invalid_argument{"Disciplina mandatoria com carga horaria menor que 30 horas"};
 }
 
 Professor* Disciplina::getProfessor(){
