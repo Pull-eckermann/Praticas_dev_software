@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdexcept>
 
+using namespace ufpr;
+
 SalaAula::SalaAula(std::string nome, unsigned int capacidade)
 	:nome{nome}, capacidade{capacidade}{
 }

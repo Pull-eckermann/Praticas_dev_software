@@ -2,6 +2,8 @@
 
 #include<iostream>
 
+using namespace ufpr;
+
 ProfessorAdjunto::~ProfessorAdjunto(){
 }
 

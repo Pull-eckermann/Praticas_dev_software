@@ -4,6 +4,7 @@
 #include<string>
 #include<list>
 
+namespace ufpr{
 class ConteudoMinistrado{
 	public:
 		ConteudoMinistrado(std::string descricao, unsigned short cargaHorariaConteudo);
@@ -20,4 +21,5 @@ class ConteudoMinistrado{
 		unsigned short cargaHorariaConteudo;
 		unsigned int id;
 };
+} // bamespace ufpr
 #endif

@@ -5,6 +5,7 @@
 #include "Professor.hpp"
 #include "Engenheiro.hpp"
 
+namespace ufpr{
 class ProfessorEngenheiro : public Professor, public Engenheiro{
     public:
         ProfessorEngenheiro(const std::string& nome, const unsigned long cpf,
@@ -15,4 +16,5 @@ class ProfessorEngenheiro : public Professor, public Engenheiro{
 
         virtual unsigned int getSalario() const;
 };
+} // namespace ufpr
 #endif

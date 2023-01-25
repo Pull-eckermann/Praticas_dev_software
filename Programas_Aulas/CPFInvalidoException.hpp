@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 
+namespace ufpr{
 class CPFInvalidoException : public std::runtime_error{
     public:
         const unsigned long cpf;
@@ -10,4 +11,5 @@ class CPFInvalidoException : public std::runtime_error{
         CPFInvalidoException(const unsigned long cpf);
         virtual ~CPFInvalidoException() = default;
 };
+} //namespace ufpr
 #endif

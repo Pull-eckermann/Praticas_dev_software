@@ -3,6 +3,8 @@
 #include<iostream>
 #include<stdexcept>
 
+using namespace ufpr;
+
 Professor::Professor(const std::string& nome, const unsigned long cpf,
 	  const unsigned int valorHora, const unsigned short cargaHoraria)
 		:Pessoa(nome, cpf), valorHora(valorHora), cargaHoraria(cargaHoraria) {

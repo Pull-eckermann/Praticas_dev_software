@@ -2,6 +2,8 @@
 #define PROFESSOR_HPP
 
 #include "Pessoa.hpp"
+
+namespace ufpr{
 class Professor : virtual public Pessoa{
     public:
         Professor(const std::string& nome, const unsigned long cpf,
@@ -19,5 +21,6 @@ class Professor : virtual public Pessoa{
         unsigned int valorHora;
         unsigned short cargaHoraria;
 };
+} // namespace ufpr
 #endif
 

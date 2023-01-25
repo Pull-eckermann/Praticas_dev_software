@@ -3,6 +3,7 @@
 
 #include "Professor.hpp"
 
+namespace ufpr{
 class ProfessorAdjunto : public Professor{
 	public:
 		using Professor::Professor;
@@ -11,4 +12,5 @@ class ProfessorAdjunto : public Professor{
 
 		virtual unsigned int getSalario() const;
 };
+} // namespace ufpr
 #endif

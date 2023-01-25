@@ -3,6 +3,8 @@
 #include "CPFInvalidoException.hpp"
 #include "InvalidAgeEx.hpp"
 
+using namespace ufpr;
+
 Pessoa::Pessoa(){
 }
 

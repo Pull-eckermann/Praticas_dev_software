@@ -1,6 +1,8 @@
 #include "ProfessorEngenheiro.hpp"
 #include <iostream>
 
+using namespace ufpr;
+
 ProfessorEngenheiro::ProfessorEngenheiro(const std::string& nome,
     const unsigned long cpf, const unsigned int valorHora,
     const unsigned short cargaHoraria, const unsigned int numeroCrea)

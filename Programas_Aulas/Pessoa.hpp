@@ -3,6 +3,7 @@
 
 #include<string>
 
+namespace ufpr{
 class Pessoa{
 	public:
 		Pessoa();
@@ -29,4 +30,5 @@ class Pessoa{
 		unsigned long cpf;
 		unsigned char idade;
 };
+} //namespace ufpr 
 #endif

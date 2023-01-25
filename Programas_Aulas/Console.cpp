@@ -2,6 +2,8 @@
 
 #include<iostream>
 
+using namespace ufpr;
+
 void Console::imprimirDadosDisciplina(Disciplina& disciplina){
 	std::cout << "Disicplina: "<< disciplina.getNome() << std::endl;
 	if(disciplina.getProfessor() != nullptr)

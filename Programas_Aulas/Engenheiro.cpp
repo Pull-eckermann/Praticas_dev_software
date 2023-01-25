@@ -1,6 +1,8 @@
 #include "Engenheiro.hpp"
 #include <iostream>
 
+using namespace ufpr;
+
 Engenheiro::Engenheiro(){};
 
 Engenheiro::Engenheiro(const unsigned int numeroCrea) : numeroCrea(numeroCrea){

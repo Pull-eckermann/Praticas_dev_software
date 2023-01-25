@@ -1,13 +1,20 @@
 #include "Disciplina.hpp"
 #include "SalaAula.hpp"
+#include "EnumTipoDisciplina.hpp"
 
 #include<iostream>
 #include<stdexcept>
 
+using namespace ufpr;
 
 Disciplina::Disciplina(std::string nome, SalaAula* sala)
 	:nome{nome}, sala(nullptr) {
 	this->setSalaAula(sala);
+}
+
+Disciplina::Disciplina(std::string nome, SalaAula* sala, EnumTipoDisciplina prioridade)
+        :nome{nome}, sala{nullptr}, prioridade{prioridade} {
+        this->setSalaAula(sala);
 }
 
 Disciplina::~Disciplina(){
@@ -59,7 +66,13 @@ int Disciplina::getCargaHoraria(){
 }
 
 void Disciplina::setCargaHoraria(unsigned int cargaHoraria){
-	this->cargaHoraria = cargaHoraria;
+	if (this->prioridade == EnumTipoDisciplina::OPTATIVA)
+		this->cargaHoraria = cargaHoraria;
+	else
+		if(cargaHoraria >= 30)
+			this->cargaHoraria = cargaHoraria;
+		else
+			throw std::invalid_argument{"Disciplina mandaria com carga horaria menor que 30 horas"};
 }
 
 Professor* Disciplina::getProfessor(){

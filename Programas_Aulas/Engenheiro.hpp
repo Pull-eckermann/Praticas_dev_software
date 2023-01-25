@@ -3,6 +3,7 @@
 
 #include "Pessoa.hpp"
 
+namespace ufpr{
 class Engenheiro : virtual public Pessoa{
 	public:
 		Engenheiro();
@@ -18,4 +19,5 @@ class Engenheiro : virtual public Pessoa{
 		constexpr static unsigned int salarioPadrao{9405};
 		unsigned int numeroCrea;
 };
+} // namespace ufpr
 #endif

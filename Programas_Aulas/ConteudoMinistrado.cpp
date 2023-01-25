@@ -1,6 +1,7 @@
 #include "ConteudoMinistrado.hpp"
 #include <iostream>
 
+using namespace ufpr;
 
 unsigned int ConteudoMinistrado::proxId{0};
 

@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 
+namespace ufpr{
 class InvalidAgeEx : public std::runtime_error{
     public:
         unsigned short int age;
@@ -10,4 +11,5 @@ class InvalidAgeEx : public std::runtime_error{
         InvalidAgeEx(unsigned short int idade);
         virtual ~InvalidAgeEx() = default;
 };
+} //namespace ufpr
 #endif

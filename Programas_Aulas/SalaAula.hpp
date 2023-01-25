@@ -5,6 +5,7 @@
 #include <list>
 #include "Disciplina.hpp"
 
+namespace ufpr{
 class SalaAula{
 	public:
 		SalaAula(std::string nome, unsigned int capacidade);
@@ -24,4 +25,5 @@ class SalaAula{
 		unsigned int capacidade;
 		std::list<Disciplina*> disciplinasMinistradas;
 };
+} // namespace ufpr
 #endif
