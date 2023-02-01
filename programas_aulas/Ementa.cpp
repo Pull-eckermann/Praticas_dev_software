@@ -23,6 +23,25 @@ Ementa::~Ementa(){
         delete livros;    
 }
 
+Ementa& Ementa::operator=(Ementa&& ementa){
+    if(this == &ementa)
+        return *this;
+    this->descricao = ementa.descricao;
+    this->livros = ementa.livros;
+    ementa.livros = nullptr;
+
+    return *this;
+}
+const Ementa& Ementa::operator=(const Ementa& ementa){
+    if(this == &ementa)
+        return *this;
+    this->descricao = ementa.descricao;
+    delete this->livros;
+    this->livros = new std::list{*ementa.livros};
+
+    return *this;
+}
+
 void Ementa::setDescricao(const std::string& descricao){
     this->descricao = descricao;
 }
