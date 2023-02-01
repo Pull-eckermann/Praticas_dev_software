@@ -18,6 +18,8 @@ class Disciplina {
     Disciplina(const std::string &nome, SalaAula *const sala);
     Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo);
     Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo, const Ementa& ementa);
+    Disciplina(const Disciplina& disciplina);//construtor de cópia
+    Disciplina(Disciplina&& disciplina);//move constructor
 
     virtual ~Disciplina();
 
