@@ -21,6 +21,9 @@ class Ementa{
         void addLivro(const Livro& livro);
         const std::list<Livro>* getLivros() const;
 
+        Ementa& operator=(Ementa&& ementa);
+        const Ementa& operator=(const Ementa& ementa);
+    
     private:
         std::string descricao;
         std::list<Livro>* livros;
