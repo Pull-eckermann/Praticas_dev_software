@@ -2,20 +2,24 @@
 #define BARALHO_HPP
 
 #include "Carta.hpp"
-#include <list>
+#include <vector>
 
 class Baralho{
   public:
     Baralho();
     ~Baralho();
 
-    const std::list<Carta*>& getCartas() const;
+    const std::vector<Carta*>& getCartas() const;
+
+    void setupCartas();
+
+    void printCartas();
 
     
     unsigned int getTamanho() const;
 
+    std::vector<Carta*> cartas;
   private:
-    std::list<Carta*> cartas;
     unsigned int tamanho;
 
 
