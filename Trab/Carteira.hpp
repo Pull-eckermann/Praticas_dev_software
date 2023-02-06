@@ -4,7 +4,7 @@
 
 class Carteira {
   public:
-    Carteira();
+    Carteira(const unsigned int fichas);
     ~Carteira();
 
     unsigned int getFichas() const;
