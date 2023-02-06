@@ -1,9 +1,18 @@
 #include "Livro.hpp"
 
+#include <iostream>
 
 namespace ufpr{
-Livro::Livro(const std::string& titulo, const short int ano)
-        :titulo{titulo}, ano{ano}{
+Livro::Livro(const unsigned long ISBN, const std::string& titulo, const short int ano)
+        :ISBN{ISBN}, titulo{titulo}, ano{ano}{
+}
+
+Livro::~Livro(){
+    std::cout << "Deletando Livro " << titulo << '\n';
+}
+
+unsigned long Livro::getISBN() const{
+    return this->ISBN;
 }
         
 const std::string& Livro::getTitulo() const{

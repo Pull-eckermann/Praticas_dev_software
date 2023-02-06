@@ -29,9 +29,4 @@ void Baralho::printCartas(){
     }
 }
 
-//void Baralho::embaralharCartas() {
-//    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-//    std::shuffle(std::begin(cartas), std::end(cartas), std::default_random_engine(seed));
-//}
-
 Baralho::~Baralho(){}

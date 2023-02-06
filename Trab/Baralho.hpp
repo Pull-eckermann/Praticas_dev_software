@@ -11,18 +11,14 @@ class Baralho{
     ~Baralho();
 
     const std::vector<Carta*>& getCartas() const;
-
     void setupCartas();
-
     void printCartas();
 
     unsigned int getTamanho() const;
 
   private:
     std::vector<Carta *> cartas;
-
     unsigned int tamanho;
-
 
 };
 #endif

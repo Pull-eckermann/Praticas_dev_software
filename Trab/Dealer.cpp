@@ -6,6 +6,10 @@
 
 Dealer::Dealer(){}
 
+Dealer::Dealer(unsigned int fichas){
+    this->carteira.setFichas()
+}
+
 Dealer::~Dealer(){};
 
 void Dealer::embaralharCartas(Baralho* b) {

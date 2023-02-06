@@ -7,9 +7,10 @@
 namespace ufpr{
 class Livro{
     public:
-        explicit Livro(const std::string& titulo, const short int ano);
-        virtual ~Livro() = default;
+        Livro(const unsigned long ISBN, const std::string& titulo, const short int ano);
+        virtual ~Livro();
         
+        unsigned long getISBN() const;
         const std::string& getTitulo() const;
 
         void setAbstract(const std::string& abstract);
@@ -21,7 +22,8 @@ class Livro{
         const std::list<std::string>& getAutores() const;
 
     private:
-        std::string titulo;
+        const unsigned long ISBN;//número de identificação único
+        const std::string titulo;
         short int ano;
         std::string abstract;
         std::list<std::string> autores;

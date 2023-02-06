@@ -8,14 +8,17 @@
 
 class Mesa {
   public:
-    Mesa();
-    Mesa(Dealer dealer, Baralho baralho, std::vector<Jogador*> jogadores);
+    Mesa(Dealer dealer, Baralho baralho);
+    virtual ~Mesa();
 
+    void addJogador(Jogador *jogador);
+    void removeJogador(Jogador *jogador);
+    const std::list<Jogador*>& getJogadores() const;
 
   private:
     Dealer dealer;
     Baralho baralho;
-    std::vector<Jogador*> jogadores;
+    std::list<Jogador*> jogadores;
     
 };
 #endif

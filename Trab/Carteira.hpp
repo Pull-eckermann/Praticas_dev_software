@@ -4,8 +4,9 @@
 
 class Carteira {
   public:
-    Carteira(const unsigned int fichas);
-    ~Carteira();
+    Carteira();
+    Carteira(unsigned int fichas);
+    virtual ~Carteira();
 
     unsigned int getFichas() const;
     void setFichas(unsigned int fichas);
