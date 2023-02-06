@@ -2,6 +2,16 @@
 
 using namespace ufpr;
 
+ProfessorAdjunto::ProfessorAdjunto(const std::string& nome, const unsigned long cpf,
+               const unsigned int valorHora, const unsigned short cargaHoraria)
+        :Pessoa{nome, cpf}, Professor{nome, cpf, valorHora, cargaHoraria} {
+}
+
+ProfessorAdjunto::ProfessorAdjunto(const std::string& nome, const CPF& cpf,
+               const unsigned int valorHora, const unsigned short cargaHoraria)
+        :Pessoa{nome, cpf}, Professor{nome, cpf, valorHora, cargaHoraria} {
+}
+
 ProfessorAdjunto::~ProfessorAdjunto(){
 
 }

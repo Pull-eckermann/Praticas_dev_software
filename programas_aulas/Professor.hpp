@@ -6,9 +6,9 @@
 namespace ufpr{
 class Professor : virtual public Pessoa{
     public:
-        Professor(const std::string& nome, const unsigned long cpf,
+        explicit Professor(const std::string& nome, const unsigned long cpf,
                 const unsigned int salario, const unsigned short cargaHoraria);
-        Professor(const std::string& nome, const CPF& cpf,
+        explicit Professor(const std::string& nome, const CPF& cpf,
                 const unsigned int salario, const unsigned short cargaHoraria);
         virtual ~Professor();
 

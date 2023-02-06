@@ -6,7 +6,10 @@
 namespace ufpr{
 class ProfessorAdjunto : public Professor{
     public:
-        using Professor::Professor;
+        explicit ProfessorAdjunto(const std::string& nome, const unsigned long cpf,
+                const unsigned int salario, const unsigned short cargaHoraria);
+        explicit ProfessorAdjunto(const std::string& nome, const CPF& cpf,
+                const unsigned int salario, const unsigned short cargaHoraria);
 
         virtual ~ProfessorAdjunto();
 

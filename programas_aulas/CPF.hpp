@@ -2,6 +2,7 @@
 #define CPF_HPP
 
 #include <iostream>
+#include <string>
 
 namespace ufpr{
 class CPF{
@@ -10,8 +11,12 @@ class CPF{
 
     public:
         CPF() = default;
-        CPF(const unsigned long numero);
+        explicit CPF(const unsigned long numero);
         virtual ~CPF() = default;
+
+        explicit operator unsigned long() const;
+        explicit operator std::string() const;
+        
         unsigned long getNumero() const;
         void setNumero(const unsigned long numero);
 

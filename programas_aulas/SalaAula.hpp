@@ -11,7 +11,7 @@ class SalaAula{
 	friend void Disciplina::setSalaAula(SalaAula* salaAula);
 
 	public:
-		SalaAula(std::string nome, unsigned int capacidade);
+		explicit SalaAula(std::string nome, unsigned int capacidade);
 		virtual ~SalaAula();
 		
 		std::string getNome();

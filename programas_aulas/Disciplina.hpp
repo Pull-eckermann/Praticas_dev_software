@@ -14,12 +14,10 @@ namespace ufpr{
 class SalaAula;  // Forward Declaration
 class Disciplina {
    public:
-    Disciplina(const std::string &nome);
-    Disciplina(const std::string &nome, SalaAula *const sala);
-    Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo);
-    Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo, const Ementa& ementa);
-    Disciplina(const Disciplina& disciplina);//construtor de cópia
-    Disciplina(Disciplina&& disciplina);//move constructor
+    explicit Disciplina(const std::string &nome);
+    explicit Disciplina(const std::string &nome, SalaAula *const sala);
+    explicit Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo);
+    explicit Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo, const Ementa& ementa);
 
     virtual ~Disciplina();
 

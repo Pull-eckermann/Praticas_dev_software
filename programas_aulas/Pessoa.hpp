@@ -8,10 +8,10 @@
 namespace ufpr{
 class Pessoa{
     public:
-        Pessoa(const std::string& nome, const unsigned long cpf);
-        Pessoa(const std::string& nome, const CPF& cpf);
-        Pessoa(const std::string& nome, const unsigned long cpf, const unsigned short int idade);
-        Pessoa(const std::string& nome, const CPF& cpf, const unsigned short int idade);
+        explicit Pessoa(const std::string& nome, const unsigned long cpf);
+        explicit Pessoa(const std::string& nome, const CPF& cpf);
+        explicit Pessoa(const std::string& nome, const unsigned long cpf, const unsigned short int idade);
+        explicit Pessoa(const std::string& nome, const CPF& cpf, const unsigned short int idade);
 
         virtual ~Pessoa() = default;
 

@@ -8,7 +8,7 @@ class CPFInvalidoException : public std::runtime_error{
     public:
         const unsigned long cpf;
 
-        CPFInvalidoException(const unsigned long cpf);
+        explicit CPFInvalidoException(const unsigned long cpf);
         virtual ~CPFInvalidoException() = default;
 };
 }

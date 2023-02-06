@@ -7,8 +7,8 @@
 namespace ufpr{
 class Engenheiro : virtual public Pessoa{
 	public:
-		Engenheiro(const std::string& nome, const unsigned long cpf, const unsigned int numeroCrea);
-		Engenheiro(const std::string& nome, const CPF& cpf, const unsigned int numeroCrea);
+		explicit Engenheiro(const std::string& nome, const unsigned long cpf, const unsigned int numeroCrea);
+		explicit Engenheiro(const std::string& nome, const CPF& cpf, const unsigned int numeroCrea);
 		virtual ~Engenheiro();
 
 		unsigned int getNumeroCrea() const;

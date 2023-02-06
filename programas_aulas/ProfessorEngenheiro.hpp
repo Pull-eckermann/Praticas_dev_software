@@ -9,11 +9,11 @@
 namespace ufpr{
 class ProfessorEngenheiro : public Professor, public Engenheiro{
     public:
-        ProfessorEngenheiro(const std::string& nome, const unsigned long cpf,
+        explicit ProfessorEngenheiro(const std::string& nome, const unsigned long cpf,
                 const unsigned int valorHora, const unsigned short cargaHoraria,
                 const unsigned int numeroCrea);
 
-        ProfessorEngenheiro(const std::string& nome, const CPF& cpf,
+        explicit ProfessorEngenheiro(const std::string& nome, const CPF& cpf,
                 const unsigned int valorHora, const unsigned short cargaHoraria,
                 const unsigned int numeroCrea);
 

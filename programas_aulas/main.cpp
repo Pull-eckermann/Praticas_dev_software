@@ -1,22 +1,21 @@
 #include <iostream>
-#include <list>
-#include "Ementa.hpp"
-#include "Disciplina.hpp"
+#include "CPF.hpp"
 
-int main(){
-    std::list<ufpr::Ementa> ementas;
-    ementas.push_back(ufpr::Ementa{"Ementa 1"});
-    ementas.push_back(ufpr::Ementa{"Ementa 2"});
+void imprimir(std::string valor){
+    std::cout << "O valor eh: " << valor << '\n';
+}
 
-    ufpr::Ementa ementaDis{"Ementa Dis"};
-    ufpr::Disciplina disciplina{"C++"};
-    disciplina.setEmenta(ementaDis);
+void imprimir(unsigned long valor){
+    std::cout << "O valor eh: " << valor << '\n';
+}
 
-    ementaDis = ufpr::Ementa{"Outra Ementa"};
+void imprimir(const ufpr::CPF& cpf) {
+    std::cout << "O CPF eh: " << cpf << '\n';
+}
 
-    std::list<ufpr::Ementa>::const_iterator it{ementas.begin()};
-    for( ; it != ementas.end(); ++it)
-        std::cout << it->getDescricao() << '\n';
-    
+int main() {
+    ufpr::CPF cpf{11111111111};
+    imprimir(cpf);
+    imprimir(static_cast<std::string>(cpf));
     return 0;
 }

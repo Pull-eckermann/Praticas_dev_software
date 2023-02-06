@@ -24,21 +24,6 @@ Disciplina::Disciplina(const std::string& nome, SalaAula* const sala, const Enum
     this->setSalaAula(sala);
 }
 
-Disciplina::Disciplina(const Disciplina& disciplina)
-        :nome{disciplina.nome}, sala{new SalaAula{disciplina.sala}}, tipo{disciplina.tipo}, ementa{disciplina.ementa},
-        cargaHoraria{disciplina.cargaHoraria}, professor{new Professor{disciplina.professor}},
-        conteudos{new std::list<ConteudoMinistrado *>{disciplina.conteudos}, alunos{new std::list<Pessoa *>{disciplina.alunos}}{
-}
-
-Disciplina::Disciplina(Disciplina&& disciplina)
-        :nome{disciplina.nome}, sala{new SalaAula{disciplina.sala}}, tipo{disciplina.tipo}, ementa{disciplina.ementa},
-        cargaHoraria{disciplina.cargaHoraria}, professor{new Professor{disciplina.professor}},
-        conteudos{new std::list<ConteudoMinistrado *>{disciplina.conteudos}, alunos{new std::list<Pessoa *>{disciplina.alunos}}{
-    disciplina.sala = nullptr;
-    disciplina.professor = nullptr;
-}
-
-
 Disciplina::~Disciplina() {
     // o setSalaAula vai remover a disciplina da sala de aula antiga, caso ela
     // exista

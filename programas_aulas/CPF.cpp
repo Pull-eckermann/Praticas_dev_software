@@ -10,6 +10,14 @@ namespace ufpr {
 
 CPF::CPF(const unsigned long numero) { this->setNumero(numero); }
 
+CPF::operator unsigned long() const{
+    return this->numero;
+}   
+
+CPF::operator std::string() const{
+    return std::to_string(this->numero);    
+}
+
 unsigned long CPF::getNumero() const { return this->numero; }
 
 void CPF::setNumero(const unsigned long numero) {

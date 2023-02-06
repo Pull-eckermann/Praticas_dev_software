@@ -7,7 +7,7 @@
 namespace ufpr{
 class Livro{
     public:
-        Livro(const std::string& titulo, const short int ano);
+        explicit Livro(const std::string& titulo, const short int ano);
         virtual ~Livro() = default;
         
         const std::string& getTitulo() const;
