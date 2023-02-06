@@ -6,7 +6,13 @@
 #include "EnumNaipeCarta.hpp"
 #include "EnumNomeCarta.hpp"
 
-Baralho::Baralho(){}
+Baralho::Baralho(){
+    setupCartas();
+}
+
+const std::vector<Carta*>& Baralho::getCartas() const{
+    return this->cartas;
+}
 
 void Baralho::setupCartas(){
     for (unsigned short int l = static_cast<unsigned short int>(EnumNaipeCarta::OURO); l <= static_cast<unsigned short int>(EnumNaipeCarta::PAUS); l++)
@@ -22,5 +28,10 @@ void Baralho::printCartas(){
         std::cout << "\n";
     }
 }
+
+//void Baralho::embaralharCartas() {
+//    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+//    std::shuffle(std::begin(cartas), std::end(cartas), std::default_random_engine(seed));
+//}
 
 Baralho::~Baralho(){}

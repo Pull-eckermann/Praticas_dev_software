@@ -5,6 +5,7 @@
 #include <vector>
 
 class Baralho{
+  friend class Dealer;
   public:
     Baralho();
     ~Baralho();
@@ -15,11 +16,11 @@ class Baralho{
 
     void printCartas();
 
-    
     unsigned int getTamanho() const;
 
-    std::vector<Carta*> cartas;
   private:
+    std::vector<Carta *> cartas;
+
     unsigned int tamanho;
 
 

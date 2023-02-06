@@ -8,9 +8,14 @@
 
 class Mesa {
   public:
+    Mesa();
+    Mesa(Dealer dealer, Baralho baralho, std::vector<Jogador*> jogadores);
 
 
   private:
+    Dealer dealer;
+    Baralho baralho;
+    std::vector<Jogador*> jogadores;
     
 };
 #endif

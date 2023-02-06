@@ -3,8 +3,8 @@ nomePrograma=blackjack
 
 all: $(nomePrograma)
 
-$(nomePrograma): main.o Jogador.o Carteira.o Carta.o Baralho.o
-	g++ -o $(nomePrograma) main.o Jogador.o Carteira.o Carta.o Baralho.o $(parametrosCompilacao)
+$(nomePrograma): main.o Jogador.o Carteira.o Carta.o Baralho.o Dealer.o
+	g++ -o $(nomePrograma) main.o Jogador.o Carteira.o Carta.o Baralho.o Dealer.o $(parametrosCompilacao)
 
 main.o: main.cpp
 	g++ -c main.cpp $(parametrosCompilacao)
@@ -20,6 +20,9 @@ Carta.o: Carta.hpp Carta.cpp
 
 Baralho.o: Baralho.hpp Baralho.cpp
 	g++ -c Baralho.cpp $(parametrosCompilacao)
+
+Dealer.o: Dealer.hpp Dealer.cpp
+	g++ -c Dealer.cpp $(parametrosCompilacao)
 
 clean:
 	rm -f *.o *.gch $(nomePrograma)
