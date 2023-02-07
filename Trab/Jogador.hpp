@@ -4,7 +4,7 @@
 #include <string>
 #include "Agente.hpp"
 
-class Jogador : public Agente {
+class Jogador : public Agente{
   public:
     Jogador(std::string nick, unsigned int fichas);
     virtual ~Jogador();

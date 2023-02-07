@@ -1,9 +1,9 @@
 #include <iostream>
-//#include "Baralho.hpp"
-//#include "Carta.hpp"
-//#include "Dealer.hpp"
+#include "Agente.hpp"
 
 int main(){
+    Agente ag;
+
     //Baralho* b{new Baralho};
     //Dealer dealer;
     //dealer.embaralharCartas(b);

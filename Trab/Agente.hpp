@@ -8,6 +8,7 @@
 
 class Agente {
   public:
+    Agente();
     Agente(unsigned int fichas, Mesa *mesa);
     virtual ~Agente();
 
@@ -18,7 +19,7 @@ class Agente {
     void adicionarCarta(Carta *carta);
     void limparMao();
 
-  private:
+  protected:
     Carteira carteira;
     std::list<Carta*> cartas;
     Mesa *mesa;

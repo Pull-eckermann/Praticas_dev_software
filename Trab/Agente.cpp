@@ -1,5 +1,7 @@
 #include "Agente.hpp"
 
+Agente::Agente(){}
+
 Agente::Agente(unsigned int fichas, Mesa *mesa)
     :this->mesa = mesa{
     carteira.setFichas(fichas);
