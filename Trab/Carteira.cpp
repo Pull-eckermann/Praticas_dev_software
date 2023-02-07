@@ -6,7 +6,7 @@ Carteira::Carteira(unsigned int fichas){
     this->setFichas(fichas);
 }
 
-virtual Carteira::~Carteira() {}
+Carteira::~Carteira() {}
 
 unsigned int Carteira::getFichas() const{
     return fichas;

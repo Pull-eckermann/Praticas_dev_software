@@ -2,12 +2,11 @@
 
 Agente::Agente(){}
 
-Agente::Agente(unsigned int fichas, Mesa *mesa)
-    :this->mesa = mesa{
+Agente::Agente(unsigned int fichas){
     carteira.setFichas(fichas);
 }
 
-virtual Agente::~Agente(){
+Agente::~Agente(){
 }
 
 Carteira Agente::getCarteira() const{
@@ -22,6 +21,8 @@ void Agente::adicionarCarta(Carta *carta){
     this->cartas.push_back(carta);
 }
 
-void Agente::limparMao(){
-    //Falta fazer ainda
+    void removerCarta(){
+        //if (not empty)
+        //    remove_ultima_carta
+        //retorna_carta_removida
 }

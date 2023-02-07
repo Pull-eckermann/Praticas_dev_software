@@ -8,6 +8,7 @@
 
 class Mesa {
   public:
+    Mesa();
     Mesa(Dealer dealer, Baralho baralho);
     virtual ~Mesa();
 
@@ -17,7 +18,8 @@ class Mesa {
 
   private:
     Dealer dealer;
-    Baralho baralho;
+    Baralho* baralho;
+    Baralho* descarte;
     std::list<Jogador*> jogadores;
     
 };

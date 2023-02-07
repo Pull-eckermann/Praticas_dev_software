@@ -11,6 +11,7 @@ class Baralho{
     ~Baralho();
 
     const std::vector<Carta*>& getCartas() const;
+    //void adicionarCarta
     void setupCartas();
     void printCartas();
 

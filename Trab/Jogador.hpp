@@ -6,6 +6,7 @@
 
 class Jogador : public Agente{
   public:
+    Jogador();
     Jogador(std::string nick, unsigned int fichas);
     virtual ~Jogador();
 

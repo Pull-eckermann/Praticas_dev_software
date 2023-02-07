@@ -1,10 +1,12 @@
 #include "Mesa.hpp"
 
+Mesa::Mesa(){}
+
 Mesa::Mesa(Dealer dealer, Baralho baralho)
     :this->dealer{dealer}, this->baralho{baralho}{
 }
 
-Mesa::virtual ~Mesa(){
+Mesa::~Mesa(){
 }
 
 void Mesa::addJogador(Jogador *jogador){

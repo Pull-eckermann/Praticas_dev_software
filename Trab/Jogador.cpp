@@ -1,10 +1,14 @@
 #include "Jogador.hpp"
 
-Jogador::Jogador(std::string nick, unsigned int fichas)
-    :this->nick{nick}, Agente{fichas}{
+Jogador::Jogador(){
 }
 
-virtual Jogador::~Jogador(){
+Jogador::Jogador(std::string nick, unsigned int fichas)
+    :Agente{fichas}{
+    this->nick = nick;
+}
+
+Jogador::~Jogador(){
 }
 
 std::string Jogador::getNick() const{

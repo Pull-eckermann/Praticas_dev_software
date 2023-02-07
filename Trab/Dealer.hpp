@@ -2,7 +2,8 @@
 #define DEALER_HPP
 
 #include "Carta.hpp"
-#include "Agente.hpp"
+//#include "Agente.hpp"
+#include "Jogador.hpp"
 
 class Baralho;
 
@@ -12,9 +13,10 @@ class Dealer : public Agente{
         Dealer(unsigned int fichas);
         virtual ~Dealer();
 
-        void embaralharCartas(Baralho* b);
+        void limparMesa();
         const Carta* puxarCarta(Baralho* b) const;
     private:
-
+        void resetaBaralho(Baralho* b, Baralho* descarte);
+        void embaralharCartas(Baralho* b);
 };
 #endif

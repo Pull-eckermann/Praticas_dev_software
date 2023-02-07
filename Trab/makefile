@@ -3,8 +3,8 @@ nomePrograma=blackjack
 
 all: $(nomePrograma)
 
-$(nomePrograma): main.o Agente.o Jogador.o Carteira.o Carta.o Baralho.o Dealer.o
-	g++ -o $(nomePrograma) main.o Agente.o Jogador.o Carteira.o Carta.o Baralho.o Dealer.o $(parametrosCompilacao)
+$(nomePrograma): main.o Agente.o Carteira.o Carta.o Baralho.o Jogador.o Dealer.o
+	g++ -o $(nomePrograma) main.o Agente.o Carteira.o Carta.o Baralho.o Jogador.o Dealer.o $(parametrosCompilacao)
 
 main.o: main.cpp
 	g++ -c main.cpp $(parametrosCompilacao)

@@ -7,15 +7,22 @@
 #include "EnumNomeCarta.hpp"
 
 Baralho::Baralho(){
-    setupCartas();
+}
+
+Baralho::Baralho(unsigned int tamanho){
+    setupCartas(tamanho);
 }
 
 const std::vector<Carta*>& Baralho::getCartas() const{
     return this->cartas;
 }
 
-void Baralho::setupCartas(){
-    for (unsigned short int l = static_cast<unsigned short int>(EnumNaipeCarta::OURO); l <= static_cast<unsigned short int>(EnumNaipeCarta::PAUS); l++)
+//adicionarCarta(Carta carta){
+//this->cartas.push_back(carta);
+//}
+
+void Baralho::setupCartas(unsigned int tamanho){
+    for (unsigned short int l = static_cast<unsigned short int>(EnumNaipeCarta::OURO); l <= static_cast<unsigned short int>(EnumNaipeCarta::PAUS)*tamanho; l++)
         for (unsigned short int c = static_cast<unsigned short int>(EnumNomeCarta::AS); c <= static_cast<unsigned short int>(EnumNomeCarta::REI); c++){
             this->cartas.push_back(new Carta{c, l, c});
         }

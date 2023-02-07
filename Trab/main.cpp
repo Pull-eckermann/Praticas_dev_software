@@ -15,3 +15,5 @@ int main(){
     //std::cout << " foi puxada do baralho.\n\n";
     //b->printCartas();
 }
+/* IMPLEMENTAR>>>>>> Baralho::adicionarCarta(), Dealer::limparMesa(), Dealer::resetBaralho(), Agente::removerCarta()
+*/
