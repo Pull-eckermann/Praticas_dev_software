@@ -3,15 +3,15 @@
 Jogador::Jogador(){
 }
 
-Jogador::Jogador(std::string nick, unsigned int fichas)
+Jogador::Jogador(const std::string nick, const unsigned int fichas)
     :Agente{fichas}{
-    this->nick = nick;
+    setNick(nick);
 }
 
 Jogador::~Jogador(){
 }
 
-std::string Jogador::getNick() const{
+const std::string Jogador::getNick() const{
     return nick;
 }
 
@@ -20,15 +20,17 @@ void Jogador::setNick(const std::string nick){
 }
 
 //Jogadas que um jogador pode fazer
-void Jogador::Stand(){
+void Jogador::Stand(){} //Nã faz nada
 
+void Jogador::Hit(Carta *carta){ //Jogador recebe mais uma carta
+    adicionarCarta(carta);
 }
 
-void Jogador::Hit(){
-
-}
-
-void Jogador::Dobrar(){
+void Jogador::Dobrar(Carta *carta){
+    if(this->cartas.size() == 2){
+        adicionarCarta(carta);
+        sacarFichas()
+    }
 
 }
 

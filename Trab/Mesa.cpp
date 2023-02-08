@@ -2,8 +2,8 @@
 
 Mesa::Mesa(){}
 
-Mesa::Mesa(Dealer dealer, Baralho baralho)
-    :this->dealer{dealer}, this->baralho{baralho}{
+Mesa::Mesa(Dealer dealer, Baralho *baralho, Baralho *descarte)
+    :dealer{dealer}, baralho{baralho}, descarte{descarte}{
 }
 
 Mesa::~Mesa(){

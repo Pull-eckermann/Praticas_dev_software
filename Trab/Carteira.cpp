@@ -2,26 +2,31 @@
 
 Carteira::Carteira() {}
 
-Carteira::Carteira(unsigned int fichas){
-    this->setFichas(fichas);
+Carteira::Carteira(const unsigned int fichas):fichas{fichas}{
 }
 
 Carteira::~Carteira() {}
 
-unsigned int Carteira::getFichas() const{
+const unsigned int Carteira::getFichas() const{
     return fichas;
 }
 
-void Carteira::setFichas(unsigned int fichas){
-    if(fichas > 0)
-        this->fichas = fichas; //Lembre-se de adicionar uma exeção aqui depois
+void Carteira::setFichas(const unsigned int fichas){
+    this->fichas = fichas;
 }
 
-void Carteira::adicionarFichas(unsigned int fichas){
+void Carteira::adicionarFichas(const unsigned int fichas){
     this->fichas += fichas;
 }
 
-void Carteira::sacarFichas(unsigned int fichas){
-    if(fichas <= this->fichas)
-        this->fichas -= fichas; //Lembrar de lançar exeção quando saca mais do que tem
+//Remove da carteira a quantia indicada e retorna ela em const
+const unsigned int Carteira::sacarFichas(const unsigned int fichas){
+    if(fichas <= this->fichas){
+        this->fichas -= fichas;
+        return fichas;
+    }else{
+        unsigned int aux = this->fichas;
+        this->fichas = 0;
+        return aux;
+    }
 }

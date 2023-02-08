@@ -9,7 +9,7 @@
 class Mesa {
   public:
     Mesa();
-    Mesa(Dealer dealer, Baralho baralho);
+    Mesa(Dealer dealer, Baralho *baralho, Baralho *descarte);
     virtual ~Mesa();
 
     void addJogador(Jogador *jogador);

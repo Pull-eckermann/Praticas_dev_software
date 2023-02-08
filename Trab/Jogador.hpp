@@ -10,13 +10,13 @@ class Jogador : public Agente{
     Jogador(std::string nick, unsigned int fichas);
     virtual ~Jogador();
 
-    std::string getNick() const;
+    const std::string getNick() const;
     void setNick(const std::string nick);
 
     //Jogadas que um jogador pode fazer
     void Stand();
-    void Hit();
-    void Dobrar();
+    void Hit(Carta *carta);
+    void Dobrar(Carta *carta);
     void Split();
     void Surrender();
 

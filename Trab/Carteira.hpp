@@ -5,14 +5,14 @@
 class Carteira {
   public:
     Carteira();
-    Carteira(unsigned int fichas);
+    Carteira(const unsigned int fichas);
     virtual ~Carteira();
 
-    unsigned int getFichas() const;
+    const unsigned int getFichas() const;
     void setFichas(unsigned int fichas);
 
-    void adicionarFichas(unsigned int fichas);
-    void sacarFichas(unsigned int fichas);
+    void adicionarFichas(const unsigned int fichas);
+    const unsigned int void sacarFichas(const unsigned int fichas);
 
   private:
     unsigned int fichas;
