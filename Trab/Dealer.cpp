@@ -1,8 +1,10 @@
 #include "Dealer.hpp"
 #include "Baralho.hpp"
+#include <iostream>
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <utility>
 
 Dealer::Dealer(){}
 
@@ -12,13 +14,23 @@ Dealer::Dealer(unsigned int fichas){
 
 Dealer::~Dealer(){}
 
-/*void Agente::limparMesa(lista_jogadores){
-    //while (!getCartas().empty() cartas_dos_jogadores not empty)
-        descate.adicionarCarta(j.removerCarta());
-    //while cartas_proprias not empty
+/*void Dealer::limparMesa(std::list<Jogador*> listaJogadores){
+    if (listaJogadores.size() == 0)
+        std::cout << "A mesa nao possui jogadores.";
+    else{
+        for (int i = 0; i < listaJogadores.size(); i++){
+            listaJogadores[i].limparMao();
+        }
+    }
+    dealer.limparMao();
+}
+
+Agente::limparMao(){
+    //while (!getCartas().empty())
         descarte.adicionarCarta(this->removerCarta());
         
 }
+
 */
 
 void Dealer::embaralharCartas(Baralho* b) {
@@ -26,17 +38,13 @@ void Dealer::embaralharCartas(Baralho* b) {
     std::shuffle(std::begin(b->cartas), std::end(b->cartas), std::default_random_engine(seed));
 }
 
-const Carta* Dealer::puxarCarta(Baralho* b) const {
-    if(!b->getCartas().empty()){
-        Carta* carta = b->getCartas().back();
-        b->cartas.pop_back();
-        return carta;
-    }
-    return nullptr;
+Carta* Dealer::puxarCarta(Baralho* b) const {
+    Carta* carta = b->getCartas().back();
+    b->cartas.pop_back();
+    return carta;
 }
 
-void resetaBaralho(Baralho* b, Baralho* descarte){
-    Baralho* aux = b;
-    b = descarte;
-    descarte = aux;
+void Dealer::resetaBaralho(Baralho* &b, Baralho* &descarte){
+    std::swap(b, descarte);
+    embaralharCartas(b);
 }
