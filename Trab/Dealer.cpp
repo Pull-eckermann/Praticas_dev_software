@@ -26,10 +26,17 @@ void Dealer::embaralharCartas(Baralho* b) {
 }
 
 const Carta* Dealer::puxarCarta(Baralho* b) const {
-    //checa se tá vazio. Se tiver, chama
-        //resetBaralho(b, descarte);
-        //embaralharCartas(b);
-    Carta* carta = b->getCartas().back();
-    b->cartas.pop_back();
-    return carta;
+    if(!b->getCartas().empty()){
+        Carta* carta = b->getCartas().back();
+        b->cartas.pop_back();
+        return carta;    
+    }else
+        //Lança exeção
+
+}
+
+void resetaBaralho(Baralho* b, Baralho* descarte){
+    Baralho *aux = *b;
+    *b = *descarte;
+    *descarte = aux;
 }

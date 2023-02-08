@@ -4,6 +4,7 @@
 int main(){
     Agente ag;
 
+    
     //Baralho* b{new Baralho};
     //Dealer dealer;
     //dealer.embaralharCartas(b);

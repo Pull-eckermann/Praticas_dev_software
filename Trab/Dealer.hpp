@@ -14,9 +14,9 @@ class Dealer : public Agente{
         virtual ~Dealer();
 
         void limparMesa();
-        const Carta* puxarCarta(Baralho* b) const;
-    private:
+        const Carta* puxarCarta(Baralho* b, Baralho* descarte) const;
+
         void resetaBaralho(Baralho* b, Baralho* descarte);
-        void embaralharCartas(Baralho* b);
+        void embaralharCartas(Baralho** b, Baralho** descarte);
 };
 #endif

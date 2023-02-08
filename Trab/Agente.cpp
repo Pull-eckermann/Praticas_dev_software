@@ -13,7 +13,7 @@ Carteira Agente::getCarteira() const{
     return carteira;
 }
 
-const std::list<Carta*>& Agente::getMao() const{
+const std::list<Carta*>& Agente::getCartas() const{
     return cartas;
 }
 
@@ -21,8 +21,11 @@ void Agente::adicionarCarta(Carta *carta){
     this->cartas.push_back(carta);
 }
 
-    void removerCarta(){
-        //if (not empty)
-        //    remove_ultima_carta
-        //retorna_carta_removida
+Carta * Agente::removerCarta(){
+    if(!cartas.empty()){
+        Carta* carta = cartas.back();
+        b->cartas.pop_back();
+        return carta;
+    }else
+        return nullptr;
 }

@@ -17,9 +17,9 @@ const std::vector<Carta*>& Baralho::getCartas() const{
     return this->cartas;
 }
 
-//adicionarCarta(Carta carta){
-//this->cartas.push_back(carta);
-//}
+void adicionarCarta(Carta* carta){
+    this->cartas.push_back(carta);
+}
 
 void Baralho::setupCartas(unsigned int tamanho){
     for (unsigned short int l = static_cast<unsigned short int>(EnumNaipeCarta::OURO); l <= static_cast<unsigned short int>(EnumNaipeCarta::PAUS)*tamanho; l++)
