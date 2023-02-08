@@ -21,10 +21,10 @@ void Agente::adicionarCarta(Carta *carta){
     this->cartas.push_back(carta);
 }
 
-Carta * Agente::removerCarta(){
-    if(!cartas.empty()){
-        Carta* carta = cartas.back();
-        b->cartas.pop_back();
+Carta* Agente::removerCarta(){
+    if(!this->cartas.empty()){
+        Carta* carta = this->cartas.back();
+        this->cartas.pop_back();
         return carta;
     }else
         return nullptr;

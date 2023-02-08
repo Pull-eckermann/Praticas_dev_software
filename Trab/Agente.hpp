@@ -3,6 +3,7 @@
 
 #include "Carteira.hpp"
 #include "Carta.hpp"
+#include "Baralho.hpp"
 #include <list>
 
 class Agente {
@@ -12,10 +13,11 @@ class Agente {
     virtual ~Agente();
 
     Carteira getCarteira() const;
-    
     const std::list<Carta*>& getCartas() const;
+
     void adicionarCarta(Carta *carta);
-    Carta *removerCartas();
+
+    Carta* removerCarta();
 
   protected:
     Carteira carteira;

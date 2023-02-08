@@ -8,11 +8,12 @@ class Baralho{
   friend class Dealer;
   public:
     Baralho();
+    Baralho(unsigned int tamanho);
     ~Baralho();
 
     const std::vector<Carta*>& getCartas() const;
     void adicionarCarta(Carta *carta);
-    void setupCartas();
+    void setupCartas(unsigned int);
     void printCartas();
 
     unsigned int getTamanho() const;
