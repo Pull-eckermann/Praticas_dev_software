@@ -20,7 +20,11 @@ void Jogador::setNick(const std::string nick){
 }
 
 //Jogadas que um jogador pode fazer
-void Jogador::Stand(){} //Nã faz nada
+void Jogador::apostar(unsigned int fichas){
+    this->carteira.sacarFichas(fichas);
+}
+
+void Jogador::Stand(){} //Não faz nada
 
 void Jogador::Hit(Carta *carta){ //Jogador recebe mais uma carta
     adicionarCarta(carta);

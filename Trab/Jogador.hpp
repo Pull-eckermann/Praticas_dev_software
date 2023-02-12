@@ -14,6 +14,7 @@ class Jogador : public Agente{
     void setNick(const std::string nick);
 
     //Jogadas que um jogador pode fazer
+    void apostar(unsigned int fichas);
     void Stand();
     void Hit(Carta *carta);
     void Dobrar(Carta *carta);

@@ -2,7 +2,6 @@
 #define DEALER_HPP
 
 #include "Carta.hpp"
-//#include "Agente.hpp"
 #include "Jogador.hpp"
 
 class Baralho;
@@ -13,7 +12,7 @@ class Dealer : public Agente{
         Dealer(unsigned int fichas);
         virtual ~Dealer();
 
-        void limparMesa();
+        void limparMesa(std::list<Jogador*> listaJogadores);
         Carta* puxarCarta(Baralho* b) const;
 
         void embaralharCartas(Baralho* b);

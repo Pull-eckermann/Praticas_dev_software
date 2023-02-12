@@ -12,16 +12,12 @@ class Agente {
     Agente(unsigned int fichas);
     virtual ~Agente();
 
-    Carteira getCarteira() const;
+    unsigned int getSaldo() const;
     const std::list<Carta*>& getCartas() const;
 
     void mostrarMao();
-
     void limparMao();
-
     void adicionarCarta(Carta *carta);
-
-    Carta* removerCarta();
 
   protected:
     Carteira carteira;

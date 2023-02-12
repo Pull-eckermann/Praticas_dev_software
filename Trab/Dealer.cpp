@@ -14,24 +14,12 @@ Dealer::Dealer(unsigned int fichas){
 
 Dealer::~Dealer(){}
 
-/*void Dealer::limparMesa(std::list<Jogador*> listaJogadores){
-    if (listaJogadores.size() == 0)
-        std::cout << "A mesa nao possui jogadores.";
-    else{
-        for (int i = 0; i < listaJogadores.size(); i++){
-            listaJogadores[i].limparMao();
-        }
+void Dealer::limparMesa(std::list<Jogador*> listaJogadores){
+    for (std::list<Jogador*>::iterator it{listaJogadores.begin()}; it != listaJogadores.end(); ++it){
+        (*it)->limparMao();
     }
-    dealer.limparMao();
+    limparMao();
 }
-
-Agente::limparMao(){
-    //while (!getCartas().empty())
-        descarte.adicionarCarta(this->removerCarta());
-        
-}
-
-*/
 
 void Dealer::embaralharCartas(Baralho* b) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -39,6 +27,8 @@ void Dealer::embaralharCartas(Baralho* b) {
 }
 
 Carta* Dealer::puxarCarta(Baralho* b) const {
+    if(b->getCartas().empty()) //Se o baralho estiver vazio retorna NULL
+        return nullptr;
     Carta* carta = b->getCartas().back();
     b->cartas.pop_back();
     return carta;
