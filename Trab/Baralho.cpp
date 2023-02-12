@@ -37,4 +37,8 @@ void Baralho::printCartas(){
     }
 }
 
+    unsigned int Baralho::getTamanho() const{
+        return this->tamanho;
+    }
+
 Baralho::~Baralho(){}

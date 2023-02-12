@@ -15,6 +15,10 @@ class Agente {
     Carteira getCarteira() const;
     const std::list<Carta*>& getCartas() const;
 
+    void mostrarMao();
+
+    void limparMao();
+
     void adicionarCarta(Carta *carta);
 
     Carta* removerCarta();

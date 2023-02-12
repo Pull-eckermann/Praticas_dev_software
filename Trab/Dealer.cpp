@@ -43,8 +43,3 @@ Carta* Dealer::puxarCarta(Baralho* b) const {
     b->cartas.pop_back();
     return carta;
 }
-
-void Dealer::resetaBaralho(Baralho* &b, Baralho* &descarte){
-    std::swap(b, descarte);
-    embaralharCartas(b);
-}

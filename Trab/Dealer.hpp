@@ -16,7 +16,6 @@ class Dealer : public Agente{
         void limparMesa();
         Carta* puxarCarta(Baralho* b) const;
 
-        void resetaBaralho(Baralho* &b, Baralho* &descarte);
         void embaralharCartas(Baralho* b);
 };
 #endif

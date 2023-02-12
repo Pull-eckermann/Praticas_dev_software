@@ -12,7 +12,7 @@ class Carteira {
     void setFichas(unsigned int fichas);
 
     void adicionarFichas(const unsigned int fichas);
-    const unsigned int void sacarFichas(const unsigned int fichas);
+    const unsigned int sacarFichas(const unsigned int fichas);
 
   private:
     unsigned int fichas;

@@ -1,5 +1,7 @@
 #include "Agente.hpp"
 
+#include <iostream>
+
 Agente::Agente(){}
 
 Agente::Agente(unsigned int fichas){
@@ -15,6 +17,20 @@ Carteira Agente::getCarteira() const{
 
 const std::list<Carta*>& Agente::getCartas() const{
     return cartas;
+}
+
+void Agente::mostrarMao(){
+    std::list<Carta*>::iterator it{this->cartas.begin()};
+    std::cout << "\nMao atual: ";
+    for ( ; it != cartas.end(); it++){
+        (*it)->printCarta();
+        std::cout << " ";
+    }
+    std::cout << std::endl;
+}
+
+void Agente::limparMao(){
+    this->cartas.clear();
 }
 
 void Agente::adicionarCarta(Carta *carta){

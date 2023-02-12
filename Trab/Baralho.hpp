@@ -9,7 +9,7 @@ class Baralho{
   public:
     Baralho();
     Baralho(unsigned int tamanho);
-    ~Baralho();
+    virtual ~Baralho();
 
     const std::vector<Carta*>& getCartas() const;
     void adicionarCarta(Carta *carta);

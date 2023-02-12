@@ -29,7 +29,7 @@ void Jogador::Hit(Carta *carta){ //Jogador recebe mais uma carta
 void Jogador::Dobrar(Carta *carta){
     if(this->cartas.size() == 2){
         adicionarCarta(carta);
-        sacarFichas()
+        //sacarFichas();
     }
 
 }
