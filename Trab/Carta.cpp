@@ -30,7 +30,10 @@ const unsigned short int Carta::getValor() const{
 void Carta::setValor(unsigned short int valor){
     if (valor == 11 || valor == 12 || valor == 13)
         this->valor = static_cast<unsigned char>(10);
-    this->valor = static_cast<unsigned char>(valor);
+    else if (valor == 1)
+        this->valor = static_cast<unsigned char>(11);
+    else
+        this->valor = static_cast<unsigned char>(valor);
 }
 
 void Carta::printCarta() const{

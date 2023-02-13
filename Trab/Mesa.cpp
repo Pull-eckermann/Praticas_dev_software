@@ -43,6 +43,22 @@ void Mesa::setupRodada(){
     }
 }
 
+
+// #### ESBOÇO DE POSSIVEIS ACOES DO JOGADOR ####
+/*void Mesa::posAcao(Jogador* jogador){
+    unsigned short valorMao = jogador->valorMao();
+    if (valorMao > 21 )
+        std::cout << "Estourou.";
+    else if (valorMao == 21)
+        std::cout << "Blackjack.";
+    else if (valorMao <= 20)
+        if (jogador->getCartas().size() == 2)
+            if (jogador->getCartas().front()->getValor() * 2 == valorMao) //se tem 2 cartas e o dobro do valor da primeira = valorTotal, então as cartas são iguais
+                std::cout << "Opções: Hit, Stand, Double, Split.";
+            else //as 2 cartas não são iguais
+                std::cout << "Opções: Hit, Stand, Double.";
+}*/
+
 Dealer Mesa::getDealer() const{
     return this->dealer;
 }

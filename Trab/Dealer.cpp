@@ -18,7 +18,9 @@ void Dealer::limparMesa(std::list<Jogador*> listaJogadores){
     for (std::list<Jogador*>::iterator it{listaJogadores.begin()}; it != listaJogadores.end(); ++it){
         (*it)->limparMao();
     }
-    limparMao();
+    std::cout << "\n### Limpando a mão do dealer... ###";
+    this->limparMao();
+    std::cout << "### Depois de limpar mao dealer ###\n";
 }
 
 void Dealer::embaralharCartas(Baralho* b) {

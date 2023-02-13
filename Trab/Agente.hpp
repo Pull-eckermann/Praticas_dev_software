@@ -15,6 +15,7 @@ class Agente {
     unsigned int getSaldo() const;
     const std::list<Carta*>& getCartas() const;
 
+    const unsigned short valorMao();
     void mostrarMao();
     void limparMao();
     void adicionarCarta(Carta *carta);

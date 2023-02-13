@@ -39,8 +39,12 @@ int main(){
         mesa.setupRodada();
 
         Console::imprimeMesa(mesa);
-
+        
+        std::cout << "\nDealer mao: ";
+        dealer.mostrarMao();
         dealer.limparMesa(mesa.getJogadores());
+        std::cout << "\nDealer mao: ";
+        dealer.mostrarMao();
     //    cont ++;
     //}
 }

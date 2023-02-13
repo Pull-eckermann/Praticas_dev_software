@@ -13,6 +13,7 @@ class Mesa {
     virtual ~Mesa();
 
     void setupRodada(); //dá 2 cartas para cada jogador e o dealer
+    void posAcao(Jogador* jogador);
 
     Dealer getDealer() const;
 
