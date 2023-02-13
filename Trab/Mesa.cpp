@@ -4,13 +4,14 @@
 
 Mesa::Mesa(){}
 
-Mesa::Mesa(Dealer dealer, Baralho *baralho)
+Mesa::Mesa(Dealer *dealer, Baralho *baralho)
     :dealer{dealer}, baralho{baralho}{
 }
 
 Mesa::~Mesa(){
 }
 
+//Começa uma rodada, distribuindo duas cartas do baralho para todos
 void Mesa::setupRodada(){
     Carta* c;
     unsigned int t_baralho = this->baralho->getTamanho(); //Número de baralhos juntos
@@ -19,12 +20,12 @@ void Mesa::setupRodada(){
     //Distribuí as cartas para os jogadores
     for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
         for (int i = 0; i < 2; i++){
-            c = dealer.puxarCarta(this->baralho);
+            c = dealer->puxarCarta(this->baralho);
             if(c == nullptr){ //Se o baralho está vazio
                 free(this->baralho); //Libera o baralho antigo
                 this->setBaralho(new Baralho{t_baralho}); //Cria um novo baralho do mesmo tamanho
-                dealer.embaralharCartas(this->baralho); //Embaralha o novo baralho
-                c = dealer.puxarCarta(this->baralho);
+                dealer->embaralharCartas(this->baralho); //Embaralha o novo baralho
+                c = dealer->puxarCarta(this->baralho);
             }
             (*it)->adicionarCarta(c);
         }
@@ -32,14 +33,14 @@ void Mesa::setupRodada(){
     }
     //Adiciona duas cartas para o Dealer
     for (int i = 0; i < 2; i++){
-        c = dealer.puxarCarta(this->baralho);
+        c = dealer->puxarCarta(this->baralho);
         if(c == nullptr){ //Se o baralho está vazio
             free(this->baralho);
             this->setBaralho(new Baralho{t_baralho});
-            dealer.embaralharCartas(this->baralho);
-            c = dealer.puxarCarta(this->baralho);
+            dealer->embaralharCartas(this->baralho);
+            c = dealer->puxarCarta(this->baralho);
         }
-        dealer.adicionarCarta(c);
+        dealer->adicionarCarta(c);
     }
 }
 
@@ -59,7 +60,7 @@ void Mesa::setupRodada(){
                 std::cout << "Opções: Hit, Stand, Double.";
 }*/
 
-Dealer Mesa::getDealer() const{
+Dealer* Mesa::getDealer() const{
     return this->dealer;
 }
 

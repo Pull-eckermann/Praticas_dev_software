@@ -9,13 +9,13 @@
 class Mesa {
   public:
     Mesa();
-    Mesa(Dealer dealer, Baralho *baralho);
+    Mesa(Dealer *dealer, Baralho *baralho);
     virtual ~Mesa();
 
     void setupRodada(); //dá 2 cartas para cada jogador e o dealer
     void posAcao(Jogador* jogador);
 
-    Dealer getDealer() const;
+    Dealer *getDealer() const;
 
     Baralho* getBaralho() const;
     void setBaralho(Baralho* baralho);
@@ -27,7 +27,7 @@ class Mesa {
 
   private:
     std::list<Jogador*> jogadores;
-    Dealer dealer;
+    Dealer* dealer;
     Baralho* baralho;
     
     

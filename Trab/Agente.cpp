@@ -43,8 +43,9 @@ void Agente::mostrarMao(){
 }
 
 void Agente::limparMao(){
-    std::cout << "\ndentro de limpar mao. Cartas: ";
-    mostrarMao();
+    std::list<Carta*>::iterator it{this->cartas.begin()};
+    while(it != cartas.end())
+        it = cartas.erase(it);
     this->cartas.clear();
 }
 

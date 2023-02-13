@@ -6,10 +6,9 @@ void Console::imprimeMesa(Mesa& mesa){
 
   std::cout << "|----------------------------------------------------------|" << std::endl;
   std::cout << "|                      *Dealer*                            |" << std::endl;
-  std::cout << "|                       " << mesa.getDealer().getSaldo() 
-    << " Fichas                     |" << std::endl;
+  std::cout << "|                       " << mesa.getDealer()->getSaldo() << std::endl;
   std::cout << "|                       ";
-  mesa.getDealer().mostrarMao();
+  mesa.getDealer()->mostrarMao();
   std::cout << "|                                                          |" << std::endl;
   std::cout << "|                                                          |" << std::endl;
   std::cout << "|                                                          |" << std::endl;
@@ -21,4 +20,17 @@ void Console::imprimeMesa(Mesa& mesa){
   }
   std::cout << "|                                                          |" << std::endl;
   std::cout << "|----------------------------------------------------------|" << std::endl;
+}
+
+void Console::telaInicial(){
+  std::cout << "  ____            __     ___                 __    ___         \n";
+  std::cout << "  |   |  |       |  |   |   |  |  /      |  |  |  |   \  |  /  \n";
+  std::cout << "  |   |  |      |    |  |      | /       | |    | |      | /   \n";
+  std::cout << "  |__ /  |      |____|  |      |/        | |____| |      |/    \n";
+  std::cout << "  |   |  |      |    |  |      ||        | |    | |      ||    \n";
+  std::cout << "  |   |  |      |    |  |      | |       | |    | |      | |   \n";
+  std::cout << "  |__ /  |_____ |    |  |___|  |  |  |___| |    | |___/  |  |  \n";
+  std::cout << "\n";
+  std::cout << "  1 - Jogar\n";
+  std::cout << "  2 - Sair\n";
 }

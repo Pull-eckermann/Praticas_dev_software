@@ -9,6 +9,7 @@ class Console{
 		virtual ~Console() = default;
 
     static void imprimeMesa(Mesa& mesa);
+		static void telaInicial();
 
 };
 #endif
