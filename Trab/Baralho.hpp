@@ -16,6 +16,7 @@ class Baralho{
     void setupCartas(unsigned int);
     void printCartas();
 
+    bool isEmpty() const;
     unsigned int getTamanho() const;
 
   private:

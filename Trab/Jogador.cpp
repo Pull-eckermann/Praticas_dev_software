@@ -38,9 +38,9 @@ void Jogador::Dobrar(Carta *carta){
 
 }
 
-void Jogador::Split(){
-
-}
+//void Jogador::Split(){
+//
+//}
 
 void Jogador::Surrender(){
 

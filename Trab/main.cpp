@@ -47,9 +47,9 @@ int main(){
             Console::imprimeMesa(mesa);
 
             dealer.limparMesa(mesa.getJogadores());
+            unsigned int recompensas = dealer.entregarRecompensas(1000);
         }
 
-        
     }else if(opcao == 2){
         exit(1);
     }

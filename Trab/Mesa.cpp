@@ -22,7 +22,6 @@ void Mesa::setupRodada(){
         for (int i = 0; i < 2; i++){
             c = dealer->puxarCarta(this->baralho);
             if(c == nullptr){ //Se o baralho está vazio
-                free(this->baralho); //Libera o baralho antigo
                 this->setBaralho(new Baralho{t_baralho}); //Cria um novo baralho do mesmo tamanho
                 dealer->embaralharCartas(this->baralho); //Embaralha o novo baralho
                 c = dealer->puxarCarta(this->baralho);

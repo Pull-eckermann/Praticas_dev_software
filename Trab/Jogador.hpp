@@ -18,7 +18,7 @@ class Jogador : public Agente{
     void Stand();
     void Hit(Carta *carta);
     void Dobrar(Carta *carta);
-    void Split();
+    //void Split();
     void Surrender();
 
   private:

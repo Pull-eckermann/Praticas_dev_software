@@ -37,8 +37,12 @@ void Baralho::printCartas(){
     }
 }
 
-    unsigned int Baralho::getTamanho() const{
-        return this->tamanho;
-    }
+bool Baralho::isEmpty() const{
+    return cartas.empty();
+}
+
+unsigned int Baralho::getTamanho() const{
+    return this->tamanho;
+}
 
 Baralho::~Baralho(){}

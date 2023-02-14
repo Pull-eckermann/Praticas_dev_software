@@ -9,8 +9,11 @@ class Baralho;
 class Dealer : public Agente{
     public:
         Dealer();
-        Dealer(unsigned int fichas);
+        Dealer(const unsigned int fichas);
         virtual ~Dealer();
+
+        void colherApostas(const unsigned int total);
+        const unsigned int entregarRecompensas(const unsigned int total);
 
         void limparMesa(std::list<Jogador*> listaJogadores);
         Carta* puxarCarta(Baralho* b) const;
