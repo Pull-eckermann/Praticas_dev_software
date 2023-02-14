@@ -23,13 +23,13 @@ void Console::imprimeMesa(Mesa& mesa){
 }
 
 void Console::telaInicial(){
-  std::cout << "  ____            __     ___                 __    ___         \n";
-  std::cout << "  |   |  |       |  |   |   |  |  /      |  |  |  |   \  |  /  \n";
-  std::cout << "  |   |  |      |    |  |      | /       | |    | |      | /   \n";
-  std::cout << "  |__ /  |      |____|  |      |/        | |____| |      |/    \n";
-  std::cout << "  |   |  |      |    |  |      ||        | |    | |      ||    \n";
-  std::cout << "  |   |  |      |    |  |      | |       | |    | |      | |   \n";
-  std::cout << "  |__ /  |_____ |    |  |___|  |  |  |___| |    | |___/  |  |  \n";
+  std::cout << "  ____          __    ___                __    ___        \n";
+  std::cout << "  |   | |      |  |  |   |  |  /     |  |  |  |   | |  /  \n";
+  std::cout << "  |   | |     |    | |      | /      | |    | |     | /   \n";
+  std::cout << "  |__ / |     |____| |      |/       | |____| |     |/    \n";
+  std::cout << "  |   | |     |    | |      ||       | |    | |     ||    \n";
+  std::cout << "  |   | |     |    | |      | |      | |    | |     | |   \n";
+  std::cout << "  |__ / |____ |    | |___|  |  | |___| |    | |___| |  |  \n";
   std::cout << "\n";
   std::cout << "  1 - Jogar\n";
   std::cout << "  2 - Sair\n";
