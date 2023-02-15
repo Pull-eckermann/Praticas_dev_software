@@ -19,18 +19,26 @@ void Jogador::setNick(const std::string nick){
     this->nick = nick;
 }
 
+const int Jogador::getApostaAtual() const{
+    return apostaAtual;
+}
+
+void Jogador::setApostaAtual(const int apostaAtual){
+    this->apostaAtual = apostaAtual;
+}
+
 //Jogadas que um jogador pode fazer
 void Jogador::apostar(unsigned int fichas){
     this->carteira.sacarFichas(fichas);
 }
 
-void Jogador::Stand(){} //Não faz nada
+void Jogador::stand(){} //Não faz nada
 
-void Jogador::Hit(Carta *carta){ //Jogador recebe mais uma carta
+void Jogador::hit(Carta *carta){ //Jogador recebe mais uma carta
     adicionarCarta(carta);
 }
 
-void Jogador::Dobrar(Carta *carta){
+void Jogador::dobrar(Carta *carta){
     if(this->cartas.size() == 2){
         adicionarCarta(carta);
         //sacarFichas();
@@ -38,7 +46,7 @@ void Jogador::Dobrar(Carta *carta){
 
 }
 
-void Jogador::Surrender(){
+void Jogador::surrender(){
 
 }
 

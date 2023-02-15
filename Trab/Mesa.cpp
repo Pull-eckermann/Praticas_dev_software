@@ -1,6 +1,7 @@
 #include "Mesa.hpp"
 
 #include <iostream>
+#include <unistd.h>
 
 Mesa::Mesa(){}
 
@@ -65,20 +66,64 @@ void Mesa::coletaDados(){
     }
 }
 
-// #### ESBOÇO DE POSSIVEIS ACOES DO JOGADOR ####
-/*void Mesa::posAcao(Jogador* jogador){
-    unsigned short valorMao = jogador->valorMao();
-    if (valorMao > 21 )
-        std::cout << "Estourou.";
-    else if (valorMao == 21)
-        std::cout << "Blackjack.";
-    else if (valorMao <= 20)
-        if (jogador->getCartas().size() == 2)
-            if (jogador->getCartas().front()->getValor() * 2 == valorMao) //se tem 2 cartas e o dobro do valor da primeira = valorTotal, então as cartas são iguais
-                std::cout << "Opções: Hit, Stand, Double, Split.";
-            else //as 2 cartas não são iguais
-                std::cout << "Opções: Hit, Stand, Double.";
-}*/
+void Mesa::rodada(){
+    unsigned short valorMao;
+    int acao;
+    Carta* c;
+    std::list<Jogador*>::iterator it;
+    for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
+        bool proxPlayer{false};
+        while (!proxPlayer){
+            valorMao = (*it)->valorMao();
+            acao = 0;
+            if (valorMao >= 21){
+                (*it)->stand();
+                proxPlayer = true;
+            }
+            else if (dealer->getCartas().front()->getValor()  == 11 && (*it)->getCartas().size() == 2)
+                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender\n5. Seguro";
+            else if ((*it)->getCartas().size() == 2)
+                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender";
+            else 
+                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand";
+            std::cin >> acao;
+            switch (acao){
+                case 1:
+                    c = dealer->puxarCarta(this->baralho);
+                    (*it)->hit(c);
+                    break;
+                case 2:
+                    (*it)->stand();
+                    proxPlayer = true;
+                    break;
+                case 3:
+                    c = dealer->puxarCarta(this->baralho);
+                    (*it)->dobrar(c);
+                    break;
+                case 4:
+                    (*it)->surrender();
+                    proxPlayer = true;
+                    break;
+            }
+        }
+    }
+    for (int i = 0; (i < 5) && (dealer->valorMao() < 17); i++){
+        c = dealer->puxarCarta(this->baralho);
+        dealer->adicionarCarta(c);
+        dealer->mostrarMao();
+        sleep(2500);
+    }
+    unsigned short dealerValorMao{dealer->valorMao()};
+    for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
+        valorMao = (*it)->valorMao();
+        if (valorMao > dealerValorMao)
+            std::cout << "Voce ganhou.";
+        else if (valorMao < dealerValorMao)
+            std::cout << "Voce perdeu.";
+        else
+            std::cout << "Voce empatou.";
+    }
+}
 
 Dealer* Mesa::getDealer() const{
     return this->dealer;

@@ -14,15 +14,19 @@ class Jogador : public Agente{
 
     const std::string getNick() const;
     void setNick(const std::string nick);
+    
+    const int getApostaAtual() const;
+    void setApostaAtual(const int apostaAtual);
 
     //Jogadas que um jogador pode fazer
     void apostar(unsigned int fichas);
-    void Stand();
-    void Hit(Carta *carta);
-    void Dobrar(Carta *carta);
-    void Surrender();
+    void stand();
+    void hit(Carta *carta);
+    void dobrar(Carta *carta);
+    void surrender();
 
   private:
     std::string nick;
+    int apostaAtual;
 };
 #endif
