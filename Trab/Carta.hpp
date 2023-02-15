@@ -4,7 +4,7 @@
 class Carta{
   public:
     Carta(const unsigned short int nome, const unsigned short int naipe, const unsigned short int valor);
-    ~Carta();
+    ~Carta() = default;
 
     const unsigned short int getNome() const;
     void setNome(unsigned short int nome);

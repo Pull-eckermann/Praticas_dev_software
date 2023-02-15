@@ -6,10 +6,9 @@
 #include <chrono>
 #include <utility>
 
-Dealer::Dealer(){}
 
-Dealer::Dealer(const unsigned int fichas){
-    this->carteira.setFichas(fichas);
+Dealer::Dealer(const unsigned int fichas)
+    :Agente{fichas}{
 }
 
 Dealer::~Dealer(){}
@@ -40,4 +39,19 @@ Carta* Dealer::puxarCarta(Baralho* b) const {
     Carta* carta = b->getCartas().back();
     b->cartas.pop_back();
     return carta;
+}
+
+void Dealer::mostrarMao(){
+    std::list<Carta*>::iterator it;
+    if(cartas.size() == 2){
+        std::cout << "******* ";
+        it = cartas.begin();
+        ++it;
+        (*it)->printCarta();
+    }else
+        for (it = cartas.begin() ; it != cartas.end(); ++it){
+            (*it)->printCarta();
+            std::cout << " ";
+        }
+    std::cout << std::endl;
 }

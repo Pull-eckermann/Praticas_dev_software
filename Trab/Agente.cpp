@@ -4,7 +4,7 @@
 
 Agente::Agente(){}
 
-Agente::Agente(unsigned int fichas){
+Agente::Agente(const unsigned int fichas){
     carteira.setFichas(fichas);
 }
 
@@ -50,5 +50,7 @@ void Agente::limparMao(){
 }
 
 void Agente::adicionarCarta(Carta *carta){
+    if(carta == nullptr)
+        throw std::invalid_argument{"Não se pode adicionar uma carta nula ao agente"};
     this->cartas.push_back(carta);
 }

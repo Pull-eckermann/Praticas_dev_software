@@ -16,8 +16,10 @@ class Dealer : public Agente{
         const unsigned int entregarRecompensas(const unsigned int total);
 
         void limparMesa(std::list<Jogador*> listaJogadores);
-        Carta* puxarCarta(Baralho* b) const;
 
+        Carta* puxarCarta(Baralho* b) const;
         void embaralharCartas(Baralho* b);
+
+        virtual void mostrarMao() override;
 };
 #endif

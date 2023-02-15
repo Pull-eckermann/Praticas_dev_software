@@ -38,26 +38,24 @@ void Carta::setValor(unsigned short int valor){
 
 void Carta::printCarta() const{
     if (this->nome == static_cast<unsigned char>(EnumNomeCarta::AS))
-        std::cout << "A";
+        std::cout << "[A";
     else if (this->nome == static_cast<unsigned char>(EnumNomeCarta::VALETE))
-        std::cout << "J";
+        std::cout << "[J";
     else if (this->nome == static_cast<unsigned char>(EnumNomeCarta::DAMA))
-        std::cout << "Q";
+        std::cout << "[Q";
     else if (this->nome == static_cast<unsigned char>(EnumNomeCarta::REI))
-        std::cout << "K";
+        std::cout << "[K";
     else
-        std::cout << static_cast<unsigned short int>(this->nome);
+        std::cout << "[" << static_cast<unsigned short int>(this->nome);
 
     std::cout << " de ";
 
     if (this->naipe == static_cast<unsigned char>(EnumNaipeCarta::OURO))
-        std::cout << "Ouro";
+        std::cout << "Ouros]";
     else if (this->naipe == static_cast<unsigned char>(EnumNaipeCarta::ESPADAS))
-        std::cout << "Espadas";
+        std::cout << "Espadas]";
     else if (this->naipe == static_cast<unsigned char>(EnumNaipeCarta::COPAS))
-        std::cout << "Copas";
+        std::cout << "Copas]";
     else if (this->naipe == static_cast<unsigned char>(EnumNaipeCarta::PAUS))
-        std::cout << "Paus";
+        std::cout << "Paus]";
 }
-
-Carta::~Carta(){}

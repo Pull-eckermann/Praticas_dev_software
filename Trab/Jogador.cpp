@@ -38,10 +38,12 @@ void Jogador::Dobrar(Carta *carta){
 
 }
 
-//void Jogador::Split(){
-//
-//}
-
 void Jogador::Surrender(){
 
+}
+
+std::ostream& operator<<(std::ostream& stream, const Jogador& jogador){
+    stream << "|Jogador: "<< jogador.getNick() << "\n";
+    stream << "|Fichas: " << jogador.getSaldo() << "\n";
+    return stream;
 }

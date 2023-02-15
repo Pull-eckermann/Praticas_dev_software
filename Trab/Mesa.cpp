@@ -22,20 +22,18 @@ void Mesa::setupRodada(){
         for (int i = 0; i < 2; i++){
             c = dealer->puxarCarta(this->baralho);
             if(c == nullptr){ //Se o baralho está vazio
-                this->setBaralho(new Baralho{t_baralho}); //Cria um novo baralho do mesmo tamanho
+                this->baralho->setupCartas(t_baralho); //Cria um novo baralho do mesmo tamanho
                 dealer->embaralharCartas(this->baralho); //Embaralha o novo baralho
                 c = dealer->puxarCarta(this->baralho);
             }
             (*it)->adicionarCarta(c);
         }
-        (*it)->mostrarMao();
     }
     //Adiciona duas cartas para o Dealer
     for (int i = 0; i < 2; i++){
         c = dealer->puxarCarta(this->baralho);
         if(c == nullptr){ //Se o baralho está vazio
-            free(this->baralho);
-            this->setBaralho(new Baralho{t_baralho});
+            this->baralho->setupCartas(t_baralho);
             dealer->embaralharCartas(this->baralho);
             c = dealer->puxarCarta(this->baralho);
         }
@@ -43,6 +41,29 @@ void Mesa::setupRodada(){
     }
 }
 
+void Mesa::coletaDados(){
+    int n_jogadores;
+    std::cout << "Digite o número de jogadores: ";
+    std::cin >> n_jogadores;
+    //Confere se o número de jogadores está dentro da margem
+    while(n_jogadores <= 0 || n_jogadores > 4){
+        std::cout << "Por favor, o número de jogadores deve estar entre 1 e 4: ";
+        std::cin >> n_jogadores;
+    }
+    std::cout << std::endl;
+
+    //Coleta os jogadores
+    for(int i = 1; i <= n_jogadores; ++i){
+        std::string nick;
+        int fichas;
+        std::cout << "Digite o nome do " << i << "º jogador: ";
+        std::cin >> nick;
+        std::cout << "Quantas fichas possuem o jogador " << nick << "?: ";
+        std::cin >> fichas;
+        this->addJogador(new Jogador(nick, fichas));
+        std::cout << std::endl;
+    }
+}
 
 // #### ESBOÇO DE POSSIVEIS ACOES DO JOGADOR ####
 /*void Mesa::posAcao(Jogador* jogador){
