@@ -14,6 +14,7 @@ class Mesa {
 
     void setupRodada(); //dá 2 cartas para cada jogador e o dealer
     void coletaDados();
+    void setaApostas();
     void rodada();
 
     Dealer *getDealer() const;

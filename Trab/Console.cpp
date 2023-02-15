@@ -8,6 +8,7 @@ void Console::imprimeMesa(Mesa& mesa){
   std::cout << "|                      *Dealer*                            |" << std::endl;
   std::cout << "|                       " << mesa.getDealer()->getSaldo() << std::endl;
   std::cout << "|    "; mesa.getDealer()->mostrarMao();
+  std::cout << "|              Pontuacao: " << mesa.getDealer()->valorMao() << std::endl;
   std::cout << "|                                                          |" << std::endl;
   std::cout << "|                                                          |" << std::endl;
   std::cout << "|                                                          |" << std::endl;

@@ -12,8 +12,8 @@ class Dealer : public Agente{
         Dealer(const unsigned int fichas);
         virtual ~Dealer();
 
-        void colherApostas(const unsigned int total);
-        const unsigned int entregarRecompensas(const unsigned int total);
+        void colherAposta(const unsigned int total);
+        void entregarRecompensas(const unsigned int total);
 
         void limparMesa(std::list<Jogador*> listaJogadores);
 

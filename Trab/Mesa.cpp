@@ -1,4 +1,5 @@
 #include "Mesa.hpp"
+#include "Console.hpp"
 
 #include <iostream>
 #include <unistd.h>
@@ -43,18 +44,20 @@ void Mesa::setupRodada(){
 }
 
 void Mesa::coletaDados(){
-    int n_jogadores;
+    std::string n_jogadores;
     std::cout << "Digite o número de jogadores: ";
     std::cin >> n_jogadores;
+    
     //Confere se o número de jogadores está dentro da margem
-    while(n_jogadores <= 0 || n_jogadores > 4){
+    while(!(n_jogadores == "1" || n_jogadores == "2" || n_jogadores == "3" || n_jogadores == "4")){
         std::cout << "Por favor, o número de jogadores deve estar entre 1 e 4: ";
         std::cin >> n_jogadores;
     }
     std::cout << std::endl;
 
     //Coleta os jogadores
-    for(int i = 1; i <= n_jogadores; ++i){
+    int n = stoi(n_jogadores);
+    for(int i = 1; i <= n; ++i){
         std::string nick;
         int fichas;
         std::cout << "Digite o nome do " << i << "º jogador: ";
@@ -66,6 +69,16 @@ void Mesa::coletaDados(){
     }
 }
 
+void Mesa::setaApostas(){
+    int fichas{0};
+    std::list<Jogador*>::iterator it;
+    for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
+        std::cout << "Aposta dessa rodada para o jogador " << (*it)->getNick() << ": ";
+        std::cin >> fichas;
+        (*it)->apostar(fichas);
+    }
+}
+
 void Mesa::rodada(){
     unsigned short valorMao;
     int acao;
@@ -74,18 +87,22 @@ void Mesa::rodada(){
     for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
         bool proxPlayer{false};
         while (!proxPlayer){
+            Console::imprimeMesa(*this);
             valorMao = (*it)->valorMao();
             acao = 0;
             if (valorMao >= 21){
                 (*it)->stand();
                 proxPlayer = true;
             }
-            else if (dealer->getCartas().front()->getValor()  == 11 && (*it)->getCartas().size() == 2)
-                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender\n5. Seguro";
-            else if ((*it)->getCartas().size() == 2)
-                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender";
-            else 
-                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand";
+            //else if (dealer->getCartas().front()->getValor()  == 11 && (*it)->getCartas().size() == 2)
+            //    std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender\n5. Seguro";
+            else if ((*it)->getCartas().size() == 2){
+                std::cout << "Vez do jogador " << (*it)->getNick() << std::endl;
+                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n3. Double\n4. Surrender\n";
+            }else{
+                std::cout << "Vez do jogador " << (*it)->getNick() << std::endl; 
+                std::cout << "Escolha uma ação:" << std::endl << "1. Hit\n2. Stand\n";
+            }
             std::cin >> acao;
             switch (acao){
                 case 1:
@@ -105,23 +122,30 @@ void Mesa::rodada(){
                     proxPlayer = true;
                     break;
             }
+            system("clear");
         }
     }
     for (int i = 0; (i < 5) && (dealer->valorMao() < 17); i++){
+        system("clear");
         c = dealer->puxarCarta(this->baralho);
         dealer->adicionarCarta(c);
-        dealer->mostrarMao();
+        Console::imprimeMesa(*this);
         sleep(2500);
     }
     unsigned short dealerValorMao{dealer->valorMao()};
     for (it = this->getJogadores().begin(); it != this->getJogadores().end(); ++it){
         valorMao = (*it)->valorMao();
-        if (valorMao > dealerValorMao)
-            std::cout << "Voce ganhou.";
-        else if (valorMao < dealerValorMao)
-            std::cout << "Voce perdeu.";
-        else
-            std::cout << "Voce empatou.";
+        if (valorMao > dealerValorMao){
+            std::cout << "Voce ganhou.\n";
+            dealer->entregarRecompensas((*it)->getApostaAtual());
+            (*it)->ganhar();
+        }else if (valorMao < dealerValorMao){
+            std::cout << "Voce perdeu.\n";
+            dealer->colherAposta((*it)->getApostaAtual());
+        }else{
+            std::cout << "Voce empatou.\n";
+            (*it)->empatar();
+        }    
     }
 }
 

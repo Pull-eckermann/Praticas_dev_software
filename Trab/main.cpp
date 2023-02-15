@@ -17,14 +17,6 @@ int main(){
         std::cin >> opcao;
     }
 
-    //try{
-    //
-    //}
-    //catch(const std::exception& e)
-    //{
-    //    std::cout << e.what() << '\n';
-    //}
-
     if(opcao == "1"){
         unsigned int tamanho{6}; //Tamanho do baralho
         Dealer dealer{10000000}; //Dealer inicia com bastante dinheiro
@@ -33,15 +25,15 @@ int main(){
         std::cout << "|============================================================|\n";
         mesa.coletaDados();
         
-        system("clear");
         //Distribui 2 cartas para cada jogador e o dealer
         dealer.embaralharCartas(mesa.getBaralho());
         while(dealer.getSaldo() > 0){ //Enquanto ainda não se quebrou a banca
+            system("clear");
+            mesa.setaApostas();
             mesa.setupRodada();
-            Console::imprimeMesa(mesa);
+            mesa.rodada();
 
             dealer.limparMesa(mesa.getJogadores());
-            unsigned int recompensas = dealer.entregarRecompensas(100000);
         }
 
     }else if(opcao == "2"){

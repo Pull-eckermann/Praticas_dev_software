@@ -13,12 +13,12 @@ Dealer::Dealer(const unsigned int fichas)
 
 Dealer::~Dealer(){}
 
-void Dealer::colherApostas(const unsigned int total){
+void Dealer::colherAposta(const unsigned int total){
     this->carteira.adicionarFichas(total);
 }
 
-const unsigned int Dealer::entregarRecompensas(const unsigned int total){
-    return  this->carteira.sacarFichas(total);
+void Dealer::entregarRecompensas(const unsigned int total){
+    this->carteira.sacarFichas(total);
 }
 
 void Dealer::limparMesa(std::list<Jogador*> listaJogadores){

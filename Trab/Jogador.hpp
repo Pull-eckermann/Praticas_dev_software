@@ -6,7 +6,7 @@
 #include "Agente.hpp"
 
 class Jogador : public Agente{
-  friend std::ostream& operator<<(std::ostream& stream, const Jogador& jogador);
+  friend std::ostream& operator<<(std::ostream& stream, Jogador& jogador);
   public:
     Jogador();
     Jogador(std::string nick, unsigned int fichas);
@@ -16,10 +16,12 @@ class Jogador : public Agente{
     void setNick(const std::string nick);
     
     const int getApostaAtual() const;
-    void setApostaAtual(const int apostaAtual);
+    void setApostaAtual(const unsigned int apostaAtual);
 
     //Jogadas que um jogador pode fazer
-    void apostar(unsigned int fichas);
+    void apostar(const unsigned int fichas);
+    void ganhar();
+    void empatar();
     void stand();
     void hit(Carta *carta);
     void dobrar(Carta *carta);
@@ -27,6 +29,6 @@ class Jogador : public Agente{
 
   private:
     std::string nick;
-    int apostaAtual;
+    unsigned int apostaAtual;
 };
 #endif

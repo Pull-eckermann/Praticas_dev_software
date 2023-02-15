@@ -1,6 +1,8 @@
 #include "Carteira.hpp"
 #include <stdexcept>
 
+Carteira::Carteira(){}
+
 Carteira::Carteira(const unsigned int fichas):fichas{fichas}{
 }
 

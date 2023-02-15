@@ -23,13 +23,24 @@ const int Jogador::getApostaAtual() const{
     return apostaAtual;
 }
 
-void Jogador::setApostaAtual(const int apostaAtual){
+void Jogador::setApostaAtual(const unsigned int apostaAtual){
     this->apostaAtual = apostaAtual;
 }
 
 //Jogadas que um jogador pode fazer
-void Jogador::apostar(unsigned int fichas){
+void Jogador::apostar(const unsigned int fichas){
     this->carteira.sacarFichas(fichas);
+    setApostaAtual(fichas);
+}
+
+void Jogador::ganhar(){
+    this->carteira.adicionarFichas(apostaAtual * 2);
+    setApostaAtual(0);
+}
+
+void Jogador::empatar(){
+    this->carteira.adicionarFichas(apostaAtual);
+    setApostaAtual(0);
 }
 
 void Jogador::stand(){} //Não faz nada
@@ -40,18 +51,20 @@ void Jogador::hit(Carta *carta){ //Jogador recebe mais uma carta
 
 void Jogador::dobrar(Carta *carta){
     if(this->cartas.size() == 2){
-        adicionarCarta(carta);
-        //sacarFichas();
+        this->adicionarCarta(carta);
+        this->carteira.sacarFichas(apostaAtual);
+        setApostaAtual(apostaAtual * 2);
     }
 
 }
 
 void Jogador::surrender(){
-
+    setApostaAtual(apostaAtual / 2);
 }
 
-std::ostream& operator<<(std::ostream& stream, const Jogador& jogador){
+std::ostream& operator<<(std::ostream& stream, Jogador& jogador){
     stream << "|Jogador: "<< jogador.getNick() << "\n";
     stream << "|Fichas: " << jogador.getSaldo() << "\n";
+    stream << "|Pontuacao: " << jogador.valorMao() << "\n";
     return stream;
 }
