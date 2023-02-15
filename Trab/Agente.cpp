@@ -5,7 +5,7 @@
 Agente::Agente(){}
 
 Agente::Agente(const unsigned int fichas){
-    carteira.setFichas(fichas);
+    this->carteira.setFichas(fichas);
 }
 
 Agente::~Agente(){
@@ -16,7 +16,7 @@ const std::list<Carta*>& Agente::getCartas() const{
 }
 
 unsigned int Agente::getSaldo() const{
-    return this->carteira.getFichas();
+    return carteira.getFichas();
 }
 
 const unsigned short Agente::valorMao(){
