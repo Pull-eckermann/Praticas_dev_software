@@ -16,7 +16,7 @@ class TelaDesenho{
 
         double calcularAreaTotal() const;
     private:
-        std::list<std::shared_ptr<const Forma>> *formas;
+        std::list<std::shared_ptr<const Forma>> formas;
 };
 }
 #endif
