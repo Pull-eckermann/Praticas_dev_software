@@ -4,6 +4,13 @@
 #include "Livro.hpp"
 #include "Ementa.hpp"
 
+std::unique_ptr<ufpr::Forma> geraCirculo(){
+    std::unique_ptr<ufpr::Forma> prof{new ufpr::Professor{"Joao", 11111111111, 100, 40}};
+    prof->setCpf(2222222222);
+    std::cout << "CPF:" << prof->getCpf() << "\n";
+    return prof;
+}
+
 int main() {
     ufpr::Ementa* ementa1{new ufpr::Ementa{"Paradigmas de programação"}};
     ufpr::Ementa* ementa2{new ufpr::Ementa{"Orientação a Objetos"}};
