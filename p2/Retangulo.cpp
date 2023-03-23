@@ -2,8 +2,9 @@
 
 using namespace erick;
 
-Retangulo::Retangulo(const double altura, const double largura):Forma{},altura{altura},largura{largura}{
-
+Retangulo::Retangulo(const double altura, const double largura):Forma{}{
+    setAltura(altura);
+    setLargura(largura);
 }
 
 void Retangulo::setAltura(const double altura){
